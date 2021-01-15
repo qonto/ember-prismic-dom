@@ -1,3 +1,5 @@
+![CI](https://github.com/mrloop/ember-prismic-dom/workflows/CI/badge.svg)
+
 ember-prismic-dom
 ==============================================================================
 
