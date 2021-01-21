@@ -47,7 +47,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       assert.equal(
         cleanHtml(this),
-        '<div><p>This is some text with <strong>overla</strong><em><strong>pp</strong>ings</em> spans and here</p></div>'
+        '<div><p>This is some text with<strong>overla</strong><em><strong>pp</strong>ings</em>spans and here</p></div>'
       );
     });
 
@@ -73,7 +73,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       assert.equal(
         cleanHtml(this),
-        '<div><p><em>A </em><a href="https://example.org" rel="noreferrer noopener" target="_blank"><em>li<strong></strong></em><strong>nk</strong></a><strong> wi</strong>th overlap</p></div>'
+        '<div><p><em>A</em><a href="https://example.org" rel="noreferrer noopener" target="_blank"><em>li<strong></strong></em><strong>nk</strong></a><strong>wi</strong>th overlap</p></div>'
       );
     });
   });
