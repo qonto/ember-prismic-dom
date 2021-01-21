@@ -1,9 +1,9 @@
-![CI](https://github.com/mrloop/ember-prismic-dom/workflows/CI/badge.svg)
+![CI](https://github.com/qonto/ember-prismic-dom/workflows/CI/badge.svg)
 
 ember-prismic-dom
 ==============================================================================
 
-[Short description of the addon.]
+More idiomatic ember rendering of data from [Prismic](https://prismic.io/), generating HTML in templates. This allows you to avoid using of [triple curlies](https://handlebarsjs.com/guide/#html-escaping) to output [Prismic](https://prismic.io/) content.
 
 
 Compatibility
@@ -25,7 +25,46 @@ ember install ember-prismic-dom
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+`<Primcic::Dom/>` replaces [`prismic-dom`](https://github.com/prismicio/prismic-dom)
+
+In place of:
+```js
+import Component from '@glimmer/component';
+import PrismicDOM from 'prismic-dom';
+
+export default class MyComponent extends Component {
+  get html() {
+    return PrismicDOM.RichText.asHtml(this.args.myPrismicDoc.data.myRichText)
+  }
+}
+```
+
+```hbs
+{{{this.html}}}
+```
+
+Use this:
+```hbs
+<Prismic::Dom @nodes={{@myPrismicDoc.data.myRichText}} />
+```
+
+Additionaly you can pass an `onUnknownTag` action to handle recieving data of a type `Prismic::Dom` can't render.
+
+```hbs
+<Prismic::Dom @nodes={{@myPrismicDoc.data.myRichText}} @onUnknownTag={{this.onUnknownTag}} />
+```
+
+```js
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+
+export default class MyComponent extends Component {
+  @action
+  onUnknownTag (node) {
+    console.error(`Could not render ${node.type}`);
+  }
+}
+```
 
 
 Contributing
