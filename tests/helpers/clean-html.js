@@ -4,9 +4,5 @@ export default function cleanHtml({ element }) {
 
   return element.innerHTML
     .replace(elementHelperIds, '')
-    .replace(emberViewClass, '')
-    .replace(/\n/g, '')
-    .replace(/( )+</g, '<')
-    .replace(/>( )+/g, '>')
-    .replace(/( ){2,}/g, '');
+    .replace(emberViewClass, '');
 }
