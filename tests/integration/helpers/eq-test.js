@@ -3,10 +3,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Helper | eq', function(hooks) {
+module('Integration | Helper | eq', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it equals', async function(assert) {
+  test('it equals', async function (assert) {
     this.set('bankName', 'qonto');
 
     await render(hbs`{{#if (eq this.bankName 'qonto')}}Good{{else}}Bad{{/if}}`);

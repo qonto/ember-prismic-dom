@@ -20,7 +20,7 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      this.onUnknownTag = node => {
+      this.onUnknownTag = (node) => {
         assert.deepEqual(node, this.node);
       };
       await render(
@@ -39,7 +39,10 @@ module('Integration | Component | prismic/element', function (hooks) {
         },
       };
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
-      assert.equal(cleanHtml(this), '<em>Qonto The all-in-one business account</em>');
+      assert.equal(
+        cleanHtml(this),
+        '<em>Qonto The all-in-one business account</em>'
+      );
     });
 
     test('heading', async function (assert) {
@@ -52,7 +55,10 @@ module('Integration | Component | prismic/element', function (hooks) {
         },
       };
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
-      assert.equal(cleanHtml(this), '<h1>Qonto The all-in-one business account</h1>');
+      assert.equal(
+        cleanHtml(this),
+        '<h1>Qonto The all-in-one business account</h1>'
+      );
     });
 
     test('hyperlink', async function (assert) {
@@ -115,7 +121,10 @@ module('Integration | Component | prismic/element', function (hooks) {
         },
       };
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
-      assert.equal(cleanHtml(this), '<p>Qonto The all-in-one business account</p>');
+      assert.equal(
+        cleanHtml(this),
+        '<p>Qonto The all-in-one business account</p>'
+      );
     });
 
     test('span', async function (assert) {
@@ -141,7 +150,10 @@ module('Integration | Component | prismic/element', function (hooks) {
         },
       };
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
-      assert.equal(cleanHtml(this), '<pre>Qonto The all-in-one business account</pre>');
+      assert.equal(
+        cleanHtml(this),
+        '<pre>Qonto The all-in-one business account</pre>'
+      );
     });
 
     test('strong', async function (assert) {
@@ -154,7 +166,10 @@ module('Integration | Component | prismic/element', function (hooks) {
         },
       };
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
-      assert.equal(cleanHtml(this), '<strong>Qonto The all-in-one business account</strong>');
+      assert.equal(
+        cleanHtml(this),
+        '<strong>Qonto The all-in-one business account</strong>'
+      );
     });
   });
 
@@ -200,7 +215,12 @@ module('Integration | Component | prismic/element', function (hooks) {
         children: [
           {
             type: 'span',
-            element: { type: 'span', start: 0, end: 23, text: 'This is some text with ' },
+            element: {
+              type: 'span',
+              start: 0,
+              end: 23,
+              text: 'This is some text with ',
+            },
             children: [],
             start: 0,
             end: 23,
@@ -259,7 +279,12 @@ module('Integration | Component | prismic/element', function (hooks) {
           },
           {
             type: 'span',
-            element: { type: 'span', start: 35, end: 50, text: ' spans and here' },
+            element: {
+              type: 'span',
+              start: 35,
+              end: 50,
+              text: ' spans and here',
+            },
             children: [],
             start: 35,
             end: 50,

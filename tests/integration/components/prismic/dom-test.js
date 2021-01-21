@@ -25,7 +25,10 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       await render(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
 
-      assert.equal(cleanHtml(this), '<div><ol><li>one</li><li>two</li></ol></div>');
+      assert.equal(
+        cleanHtml(this),
+        '<div><ol><li>one</li><li>two</li></ol></div>'
+      );
     });
 
     test('it renders text with overlapping spans', async function (assert) {
