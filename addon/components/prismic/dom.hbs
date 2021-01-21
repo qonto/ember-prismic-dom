@@ -1,0 +1,9 @@
+<div ...attributes>
+  {{#if this.isString}}
+    {{@nodes}}
+  {{else}}
+    {{#each this.tree.children as |child|}}
+      <Prismic::Element @node={{child}} @onUnknownTag={{@onUnknownTag}} />
+    {{/each}}
+  {{/if}}
+</div>

@@ -1,0 +1,23 @@
+{{#if @node.element.linkUrl}}
+  <a
+    href={{@node.element.linkUrl}}
+    target={{if @node.element.linkTarget @node.element.linkTarget "_blank"}}
+    rel="noreferrer noopener"
+  >
+    <img
+      alt={{@node.element.alt}}
+      copyright={{@node.element.copyright}}
+      src={{@node.element.url}}
+      width={{@node.element.width}}
+      height={{@node.element.height}}
+    />
+  </a>
+{{else}}
+  <img
+    alt={{@node.element.alt}}
+    copyright={{@node.element.copyright}}
+    src={{@node.element.url}}
+    width={{@node.element.width}}
+    height={{@node.element.height}}
+  />
+{{/if}}

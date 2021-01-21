@@ -1,0 +1,5 @@
+{{#each @node.children as |child|}}
+  <Prismic::Element @node={{child}} @onUnknownTag={{@onUnknownTag}} />
+{{else}}
+  {{@node.element.text}}
+{{/each}}
