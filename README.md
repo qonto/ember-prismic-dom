@@ -1,7 +1,12 @@
-![CI](https://github.com/qonto/ember-prismic-dom/workflows/CI/badge.svg)
 
 ember-prismic-dom
 ==============================================================================
+
+![CI](https://github.com/qonto/ember-prismic-dom/workflows/CI/badge.svg)
+[![Latest NPM release][npm-badge]][npm-badge-url]
+
+[npm-badge]: https://img.shields.io/npm/v/ember-prismic-dom.svg
+[npm-badge-url]: https://www.npmjs.com/package/ember-prismic-dom
 
 More idiomatic ember rendering of data from [Prismic](https://prismic.io/), generating HTML in templates. This allows you to avoid using of [triple curlies](https://handlebarsjs.com/guide/#html-escaping) to output [Prismic](https://prismic.io/) content.
 
