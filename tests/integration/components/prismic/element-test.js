@@ -9,6 +9,57 @@ import cleanHtml from '../../../helpers/clean-html';
 module('Integration | Component | prismic/element', function (hooks) {
   setupRenderingTest(hooks);
 
+  module('linkResolver', function () {
+    test('called with doc object', async function (assert) {
+      assert.expect(1);
+      this.node = {
+        key: 'f37fa1aa-5d40-41fd-951a-cebb2b2f1839',
+        type: 'hyperlink',
+        element: {
+          start: 18,
+          end: 21,
+          type: 'hyperlink',
+          data: {
+            id: 'YAlUbREAACIAEKtG',
+            type: 'faq_article',
+            tags: ['transaction_helper_cards'],
+            slug: 'processing-card-transaction',
+            lang: 'en-us',
+            link_type: 'Document',
+            isBroken: false,
+          },
+        },
+        children: [
+          {
+            key: '728406cc-c73c-4ffb-ba4c-fff0cef3d8fa',
+            type: 'span',
+            element: { type: 'span', start: 18, end: 21, text: 'doc' },
+            children: [],
+            start: 18,
+            end: 21,
+            text: 'doc',
+          },
+        ],
+        start: 18,
+        end: 21,
+        text: 'doc',
+      };
+      this.linkResolver = (doc) => {
+        assert.deepEqual(doc, {
+          id: 'YAlUbREAACIAEKtG',
+          uid: 'processing-card-transaction',
+          type: 'faq_article',
+          tags: ['transaction_helper_cards'],
+          lang: 'en-us',
+          isBroken: false,
+        });
+      };
+      await render(
+        hbs`<Prismic::Element @node={{this.node}} @linkResolver={{this.linkResolver}}/>`
+      );
+    });
+  });
+
   module('single elements', function () {
     test('figure - unknown type call onUnknownTag with node', async function (assert) {
       assert.expect(2);
