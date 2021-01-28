@@ -17,6 +17,40 @@ module('Integration | Component | prismic/dom', function (hooks) {
   });
 
   module('complex combinations', function () {
+    test('doc hyperlink with linkResolver', async function (assert) {
+      this.nodes = [
+        {
+          type: 'paragraph',
+          text: 'A link to another doc',
+          spans: [
+            {
+              start: 18,
+              end: 21,
+              type: 'hyperlink',
+              data: {
+                id: 'YAlUbREAACIAEKtG',
+                type: 'faq_article',
+                tags: ['transaction_helper_cards'],
+                slug: 'processing-card-transaction',
+                lang: 'en-us',
+                link_type: 'Document',
+                isBroken: false,
+              },
+            },
+          ],
+        },
+      ];
+      this.linkResolver = ({ uid }) => `https://qonto.com/${uid}`;
+
+      await render(
+        hbs`<Prismic::Dom @linkResolver={{this.linkResolver}} @nodes={{this.nodes}} />`
+      );
+
+      assert
+        .dom('a')
+        .hasProperty('href', 'https://qonto.com/processing-card-transaction');
+    });
+
     test('list', async function (assert) {
       this.nodes = [
         { type: 'o-list-item', text: 'one', spans: [] },
