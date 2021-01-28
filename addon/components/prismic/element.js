@@ -32,4 +32,29 @@ export default class PrismicElementComponent extends Component {
   get target() {
     return this.args.node.element.data.value?.target || '_blank';
   }
+
+  get linkHref() {
+    // https://prismic.io/docs/technologies/link-resolver-javascript
+    let {
+      id,
+      slug: uid,
+      type,
+      tags,
+      lang,
+      isBroken,
+      link_type,
+    } = this.args.node.element.data;
+    if (link_type === 'Document') {
+      return this.args.linkResolver?.({
+        id,
+        uid,
+        type,
+        tags,
+        lang,
+        isBroken,
+      });
+    } else {
+      return this.args.node.element.data.url;
+    }
+  }
 }
