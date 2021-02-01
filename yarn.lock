@@ -4925,7 +4925,7 @@ ember-cli-babel@^7.0.0, ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-
     rimraf "^3.0.1"
     semver "^5.5.0"
 
-ember-cli-babel@^7.17.2:
+ember-cli-babel@^7.17.2, ember-cli-babel@^7.19.0:
   version "7.23.1"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.23.1.tgz#d1517228ede08a5d4b045c78a7429728e956b30b"
   integrity sha512-qYggmt3hRs6QJ6cRkww3ahMpyP8IEV2KFrIRO/Z6hu9MkE/8Y28Xd5NjQl6fPV3oLoG0vwuHzhNe3Jr7Wec8zw==
@@ -5300,6 +5300,14 @@ ember-maybe-import-regenerator@^0.1.6:
     broccoli-merge-trees "^1.0.0"
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
+
+ember-named-blocks-polyfill@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/ember-named-blocks-polyfill/-/ember-named-blocks-polyfill-0.2.4.tgz#f5f30711ee89244927b55aae7fa9630edaadc974"
+  integrity sha512-PsohC7ejjS7V++6i/JSy0pl1hXLV3IS3Qs+O7SrjIPYcg1UEmUwqgPiDmXqNgy0p2dc5TK5bIJTtX8wofCI63Q==
+  dependencies:
+    ember-cli-babel "^7.19.0"
+    ember-cli-version-checker "^5.1.1"
 
 ember-page-title@^6.0.3:
   version "6.1.0"

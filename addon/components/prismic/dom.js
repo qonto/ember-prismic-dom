@@ -10,4 +10,8 @@ export default class PrismicDomComponent extends Component {
   get isString() {
     return typeof this.args.nodes === 'string';
   }
+
+  get target() {
+    return this.args.node.element.data.value?.target || '_blank';
+  }
 }

@@ -28,8 +28,4 @@ export default class PrismicElementComponent extends Component {
     this.args.onUnknownTag?.(this.args.node);
     return null;
   }
-
-  get target() {
-    return this.args.node.element.data.value?.target || '_blank';
-  }
 }

@@ -1,15 +1,15 @@
 {{~#if (eq @node.type "image")~}}
   <Prismic::Image @node={{@node}} />
 {{~else if (eq @node.type "span")~}}
-  <Prismic::Children @node={{@node}} @onUnknownTag={{@onUnknownTag}} />
+  <Prismic::Children @node={{@node}} @onUnknownTag={{@onUnknownTag}}>
+    <:hyperlink as |node|>{{~yield node to='hyperlink'~}}</:hyperlink>
+  </Prismic::Children>
 {{~else if (eq @node.type "hyperlink")~}}
-  <a
-    href={{@node.element.data.url}}
-    rel="noreferrer noopener"
-    target={{this.target}}
-  ><Prismic::Children @node={{@node}} @onUnknownTag={{@onUnknownTag}} /></a>
+  {{~yield @node to="hyperlink"~}}
 {{~else~}}
   {{~#let (element this.tagName) as |Tag|~}}
-    <Tag><Prismic::Children @node={{@node}} @onUnknownTag={{@onUnknownTag}} /></Tag>
+    <Tag><Prismic::Children @node={{@node}} @onUnknownTag={{@onUnknownTag}}>
+      <:hyperlink as |node|>{{~yield node to='hyperlink'~}}</:hyperlink>
+    </Prismic::Children></Tag>
   {{~/let~}}
 {{~/if~}}

@@ -16,6 +16,32 @@ module('Integration | Component | prismic/dom', function (hooks) {
     });
   });
 
+  module('custom elements', function () {
+    test('hyperlink', async function (assert) {
+      this.nodes = [
+        {
+          type: 'paragraph',
+          text: 'A link to somewhere',
+          spans: [
+            {
+              start: 2,
+              end: 6,
+              type: 'hyperlink',
+              data: { link_type: 'Web', url: 'https://example.org' },
+            },
+          ],
+        },
+      ];
+      await render(
+        hbs`<Prismic::Dom @nodes={{this.nodes}}><:hyperlink as |node|><a href="{{node.element.data.url}}">link</a></:hyperlink></Prismic::Dom>`
+      );
+      assert.equal(
+        cleanHtml(this),
+        '<div><p>A <a href="https://example.org">link</a> to somewhere</p></div>'
+      );
+    });
+  });
+
   module('complex combinations', function () {
     test('list', async function (assert) {
       this.nodes = [

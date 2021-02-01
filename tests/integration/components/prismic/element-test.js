@@ -26,7 +26,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(
         hbs`<Prismic::Element @node={{this.node}} @onUnknownTag={{this.onUnknownTag}} />`
       );
-      assert.equal(cleanHtml(this), '<!---->', 'not displayed');
+      assert.equal(cleanHtml(this), '', 'not displayed');
     });
 
     test('em', async function (assert) {

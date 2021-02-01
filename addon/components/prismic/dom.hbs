@@ -2,8 +2,20 @@
   {{~#if this.isString~}}
     {{@nodes}}
   {{~else~}}
-    {{~#each this.tree.children as |child|~}}
-      <Prismic::Element @node={{child}} @onUnknownTag={{@onUnknownTag}} />
-    {{~/each~}}
+    <Prismic::Children @node={{this.tree}} @onUnknownTag={{@onUnknownTag}} >
+      <:hyperlink as |node|>
+        {{~#if (has-block "hyperlink")~}}
+          {{~yield node to='hyperlink'~}}
+        {{~else~}}
+          <a
+            href={{@node.element.data.url}}
+            rel="noreferrer noopener"
+            target={{this.target}}
+          ><Prismic::Children @node={{@node}} @onUnknownTag={{@onUnknownTag}}>
+            <:hyperlink as |node|>{{~yield node to='hyperlink'~}}</:hyperlink>
+          </Prismic::Children></a>
+        {{~/if~}}
+      </:hyperlink>
+    </Prismic::Children>
   {{~/if~}}
 </div>
