@@ -32,4 +32,12 @@ export default class PrismicElementComponent extends Component {
   get target() {
     return this.args.node.element.data.value?.target || '_blank';
   }
+
+  get isCustom() {
+    return Boolean(this.componentName);
+  }
+
+  get componentName() {
+    return this.args.componentNames?.[this.args.node.type];
+  }
 }

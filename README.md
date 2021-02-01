@@ -53,6 +53,8 @@ Use this:
 <Prismic::Dom @nodes={{@myPrismicDoc.data.myRichText}} />
 ```
 
+### onUnknonwnTag
+
 Additionaly you can pass an `onUnknownTag` action to handle recieving data of a type `Prismic::Dom` can't render.
 
 ```hbs
@@ -69,6 +71,29 @@ export default class MyComponent extends Component {
     console.error(`Could not render ${node.type}`);
   }
 }
+```
+
+### Custom Rendering
+
+Pass a custom component name to be used to render a prismic type. For example to custom render the 'group-list-item' and 'hyperlink' types
+
+```hbs
+<Prismic::Dom
+  @group-list-item='my-list'
+  @hyperlink='my-hyperlink'
+  @nodes={{@myPrismicDoc.data.myRichText}}
+/>
+```
+
+my-list.hbs
+```hbs
+<h1>My List</h2>
+<ul>{{yield}}<ul>
+```
+
+my-hyperlink.hbs
+```hbs
+<a href={{@node.element.data.url}}>{{yield}}</a>
 ```
 
 

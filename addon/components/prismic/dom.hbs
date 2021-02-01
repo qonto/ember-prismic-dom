@@ -3,7 +3,11 @@
     {{@nodes}}
   {{~else~}}
     {{~#each this.tree.children as |child|~}}
-      <Prismic::Element @node={{child}} @onUnknownTag={{@onUnknownTag}} />
+      <Prismic::Element
+        @componentNames={{this.componentNames}}
+        @node={{child}}
+        @onUnknownTag={{@onUnknownTag}}
+      />
     {{~/each~}}
   {{~/if~}}
 </div>
