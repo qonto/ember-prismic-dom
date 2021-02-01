@@ -1,7 +1,5 @@
 {{~#each @node.children as |child|~}}
-  <Prismic::Element @node={{child}} @onUnknownTag={{@onUnknownTag}} >
-    <:hyperlink as |node|>{{~yield node to='hyperlink'~}}</:hyperlink>
-  </Prismic::Element>
+  {{~yield child to=this.tagName~}}
 {{~else~}}
   {{~@node.element.text~}}
 {{~/each~}}

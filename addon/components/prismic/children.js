@@ -20,7 +20,7 @@ const TAGS = Object.freeze({
   strong: 'strong',
 });
 
-export default class PrismicElementComponent extends Component {
+export default class PrismicChildrenComponent extends Component {
   get tagName() {
     if (TAGS[this.args.node.type]) {
       return TAGS[this.args.node.type];

@@ -8,14 +8,30 @@
           {{~yield node to='hyperlink'~}}
         {{~else~}}
           <a
-            href={{@node.element.data.url}}
+            href={{node.element.data.url}}
             rel="noreferrer noopener"
             target={{this.target}}
-          ><Prismic::Children @node={{@node}} @onUnknownTag={{@onUnknownTag}}>
+          ><Prismic::Children @node={{node}} @onUnknownTag={{@onUnknownTag}}>
             <:hyperlink as |node|>{{~yield node to='hyperlink'~}}</:hyperlink>
           </Prismic::Children></a>
         {{~/if~}}
       </:hyperlink>
+      <:heading1 as |node|>
+        {{~#if (has-block "heading1")~}}
+          {{~yield node to='heading1'~}}
+        {{~else~}}
+          <h1><Prismic::Children @node={{@node}} @onUnknownTag={{@onUnknownTag}}>
+            <:hyperlink as |node|>{{~yield node to='hyperlink'~}}</:hyperlink>
+          </Prismic::Children></h1>
+        {{~/if~}}
+      </:heading1>
+      <:heading2 as |node| >
+        {{~#if (has-block "heading2")~}}
+          {{~yield node to='heading2'~}}
+        {{~else~}}
+          <h2>{{~yield node to='children'~}}</h2>
+        {{~/if}}
+      </:heading2>
     </Prismic::Children>
   {{~/if~}}
 </div>
