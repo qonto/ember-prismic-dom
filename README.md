@@ -8,8 +8,11 @@ ember-prismic-dom
 [npm-badge]: https://img.shields.io/npm/v/ember-prismic-dom.svg
 [npm-badge-url]: https://www.npmjs.com/package/ember-prismic-dom
 
-More idiomatic ember rendering of data from [Prismic](https://prismic.io/), generating HTML in templates. This allows you to avoid using of [triple curlies](https://handlebarsjs.com/guide/#html-escaping) to output [Prismic](https://prismic.io/) content.
+Easy [Prismic](https://prismic.io/) rendering in [Ember.js](https://emberjs.com).
 
+```hbs
+<Prismic::Dom @nodes={{@prismicData}} />
+```
 
 Compatibility
 ------------------------------------------------------------------------------
@@ -22,7 +25,7 @@ Compatibility
 Installation
 ------------------------------------------------------------------------------
 
-```
+```sh
 ember install ember-prismic-dom
 ```
 
@@ -30,25 +33,6 @@ ember install ember-prismic-dom
 Usage
 ------------------------------------------------------------------------------
 
-`<Primcic::Dom/>` replaces [`prismic-dom`](https://github.com/prismicio/prismic-dom)
-
-In place of:
-```js
-import Component from '@glimmer/component';
-import PrismicDOM from 'prismic-dom';
-
-export default class MyComponent extends Component {
-  get html() {
-    return PrismicDOM.RichText.asHtml(this.args.myPrismicDoc.data.myRichText)
-  }
-}
-```
-
-```hbs
-{{{this.html}}}
-```
-
-Use this:
 ```hbs
 <Prismic::Dom @nodes={{@myPrismicDoc.data.myRichText}} />
 ```
@@ -75,7 +59,7 @@ export default class MyComponent extends Component {
 
 ### Custom Rendering
 
-Pass a custom component name to be used to render a prismic type. For example to custom render the 'group-list-item' and 'hyperlink' types
+Pass a custom component name to be used to render a prismic type. For example to custom render the `group-list-item` and `hyperlink` types
 
 ```hbs
 <Prismic::Dom
@@ -85,17 +69,54 @@ Pass a custom component name to be used to render a prismic type. For example to
 />
 ```
 
-my-list.hbs
+_my-list.hbs_
 ```hbs
 <h1>My List</h2>
 <ul>{{yield}}<ul>
 ```
 
-my-hyperlink.hbs
+_my-hyperlink.hbs_
 ```hbs
 <a href={{@node.element.data.url}}>{{yield}}</a>
 ```
 
+### Use existing addons
+
+For example you want to use [`ember-async-image`](https://github.com/html-next/ember-async-image)
+
+```hbs
+<Prismic::Dom @nodes={{@nodes}} @image='image'>
+```
+
+_image.hbs_
+```hbs
+<AsyncImage src={{@node.element.url}}/>
+```
+
+### Migrating from prismic-dom
+
+`<Primcic::Dom/>` replaces [`prismic-dom`](https://github.com/prismicio/prismic-dom) , please [see the blog post for more information.](https://medium.com/qonto-way/introducing-ember-prismic-dom-c362647037d7)
+
+In place of:
+```js
+import Component from '@glimmer/component';
+import PrismicDOM from 'prismic-dom';
+
+export default class MyComponent extends Component {
+  get html() {
+    return PrismicDOM.RichText.asHtml(this.args.myPrismicDoc.data.myRichText)
+  }
+}
+```
+
+```hbs
+{{{this.html}}}
+```
+
+Use this:
+```hbs
+<Prismic::Dom @nodes={{@myPrismicDoc.data.myRichText}} />
+```
 
 Contributing
 ------------------------------------------------------------------------------
