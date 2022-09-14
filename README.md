@@ -1,3 +1,4 @@
+![ember-prismic-dom-illustration](https://user-images.githubusercontent.com/12345/189907218-ff8a7d4e-e5bf-4d6f-af87-972ceb98195e.svg)
 
 ember-prismic-dom
 ==============================================================================
