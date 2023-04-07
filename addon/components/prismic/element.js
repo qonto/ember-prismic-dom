@@ -18,6 +18,7 @@ const TAGS = Object.freeze({
   paragraph: 'p',
   preformatted: 'pre',
   strong: 'strong',
+  label: 'label',
 });
 
 export default class PrismicElementComponent extends Component {

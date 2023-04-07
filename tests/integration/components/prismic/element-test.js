@@ -171,6 +171,22 @@ module('Integration | Component | prismic/element', function (hooks) {
         '<strong>Qonto The all-in-one business account</strong>'
       );
     });
+
+    test('label', async function (assert) {
+      this.node = {
+        type: 'label',
+        element: {
+          type: 'label',
+          text: 'Qonto The all-in-one business account',
+          spans: [],
+        },
+      };
+      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+      assert.equal(
+        cleanHtml(this),
+        '<label>Qonto The all-in-one business account</label>'
+      );
+    });
   });
 
   module('complex combinations', function () {
