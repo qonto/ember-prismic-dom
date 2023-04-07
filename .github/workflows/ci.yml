@@ -43,7 +43,7 @@ on:
   pull_request:
 
 env:
-  NODE_VERSION: '14.x'
+  NODE_VERSION: ['16.x', '18.x']
 
 jobs:
   lint:
