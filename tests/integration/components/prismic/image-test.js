@@ -23,7 +23,7 @@ module('Integration | Component | prismic/image', function (hooks) {
       },
     };
     await render(hbs`<Prismic::Image @node={{this.node}} />`);
-    assert.equal(
+    assert.strictEqual(
       cleanHtml(this),
       '<img alt="Qonto The all-in-one business account" copyright="qonto" src="/assets/img/connect/slack.png" width="500" height="400">'
     );
@@ -44,7 +44,7 @@ module('Integration | Component | prismic/image', function (hooks) {
       },
     };
     await render(hbs`<Prismic::Image @node={{this.node}} />`);
-    assert.equal(
+    assert.strictEqual(
       cleanHtml(this),
       '<a href="https://example.org" target="_blank" rel="noreferrer noopener"><img alt="Qonto The all-in-one business account" copyright="qonto" src="/assets/img/connect/slack.png" width="500" height="400"></a>'
     );
@@ -66,7 +66,7 @@ module('Integration | Component | prismic/image', function (hooks) {
       },
     };
     await render(hbs`<Prismic::Image @node={{this.node}} />`);
-    assert.equal(
+    assert.strictEqual(
       cleanHtml(this),
       '<a href="https://example.org" target="_top" rel="noreferrer noopener"><img alt="Qonto The all-in-one business account" copyright="qonto" src="/assets/img/connect/slack.png" width="500" height="400"></a>'
     );

@@ -12,7 +12,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
   module('single elements', function () {
     test('renders string', async function (assert) {
       await render(hbs`<Prismic::Dom @nodes='some text' />`);
-      assert.equal(cleanHtml(this), '<div>some text</div>');
+      assert.strictEqual(cleanHtml(this), '<div>some text</div>');
     });
   });
 
@@ -36,7 +36,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
       await render(
         hbs`<Prismic::Dom @nodes={{this.nodes}} @hyperlink='hyperlink'/>`
       );
-      assert.equal(
+      assert.strictEqual(
         cleanHtml(this),
         '<div><p>A <a href="https://example.org">link</a> to somewhere</p></div>'
       );
@@ -54,14 +54,14 @@ module('Integration | Component | prismic/dom', function (hooks) {
         hbs`<Prismic::Dom @nodes={{this.nodes}} @group-list-item='group-list-item' @list-item={{this.listItem}}/>`
       );
 
-      assert.equal(
+      assert.strictEqual(
         cleanHtml(this),
         '<div><ul><li>one</li><li>two</li>elephant</ul></div>'
       );
 
       this.set('listItem', 'list-item');
 
-      assert.equal(
+      assert.strictEqual(
         cleanHtml(this),
         '<div><ul><li>one bananna</li><li>two bananna</li>elephant</ul></div>'
       );
@@ -77,7 +77,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       await render(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
 
-      assert.equal(
+      assert.strictEqual(
         cleanHtml(this),
         '<div><ol><li>one</li><li>two</li></ol></div>'
       );
@@ -97,7 +97,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       await render(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
 
-      assert.equal(
+      assert.strictEqual(
         cleanHtml(this),
         '<div><p>This is some text with <strong>overla</strong><em><strong>pp</strong>ings</em> spans and here</p></div>'
       );
@@ -123,7 +123,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       await render(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
 
-      assert.equal(
+      assert.strictEqual(
         cleanHtml(this),
         '<div><p><em>A </em><a href="https://example.org" rel="noreferrer noopener" target="_blank"><em>li<strong></strong></em><strong>nk</strong></a><strong> wi</strong>th overlap</p></div>'
       );
