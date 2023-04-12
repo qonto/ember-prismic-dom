@@ -1,5 +1,12 @@
 'use strict';
 
 module.exports = {
-  singleQuote: true,
+  overrides: [
+    {
+      files: '*.{js,ts,yml}',
+      options: {
+        singleQuote: true,
+      },
+    },
+  ],
 };

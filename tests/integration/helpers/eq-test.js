@@ -11,10 +11,10 @@ module('Integration | Helper | eq', function (hooks) {
 
     await render(hbs`{{#if (eq this.bankName 'qonto')}}Good{{else}}Bad{{/if}}`);
 
-    assert.equal(this.element.textContent.trim(), 'Good');
+    assert.strictEqual(this.element.textContent.trim(), 'Good');
 
     this.set('bankName', 'other bank');
 
-    assert.equal(this.element.textContent.trim(), 'Bad');
+    assert.strictEqual(this.element.textContent.trim(), 'Bad');
   });
 });
