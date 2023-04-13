@@ -1,3 +1,8 @@
+## v2.1.0 (2022-09-14)
+
+#### :rocket: Enhancement
+
+Convert to v2 addon format
 
 ## v2.0.0 (2022-09-14)
 
