@@ -1,5 +1,5 @@
 {{~#if this.isCustom~}}
-  {{~#component this.componentName node=@node~}}
+  {{~#component (ensure-safe-component this.componentName) node=@node~}}
     <Prismic::Children
       @componentNames={{@componentNames}}
       @node={{@node}}
