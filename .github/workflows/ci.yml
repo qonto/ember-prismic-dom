@@ -53,7 +53,7 @@ jobs:
       - name: Install pnpm
         uses: NullVoxPopuli/action-setup-pnpm@v2
         with:
-          pnpm-version: 8.5.1
+          pnpm-version: 8.6.0
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Lint
@@ -79,7 +79,7 @@ jobs:
       - name: Install pnpm
         uses: NullVoxPopuli/action-setup-pnpm@v2
         with:
-          pnpm-version: 8.5.1
+          pnpm-version: 8.6.0
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Run Tests
@@ -105,7 +105,7 @@ jobs:
       - name: Install pnpm
         uses: NullVoxPopuli/action-setup-pnpm@v2
         with:
-          pnpm-version: 8.5.1
+          pnpm-version: 8.6.0
           no-lockfile: true
       - name: Install dependencies
         run: pnpm install --no-lockfile
@@ -148,7 +148,7 @@ jobs:
       - name: Install pnpm
         uses: NullVoxPopuli/action-setup-pnpm@v2
         with:
-          pnpm-version: 8.5.1
+          pnpm-version: 8.6.0
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Run tests
