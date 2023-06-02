@@ -1,3 +1,14 @@
+## v4.0.0 (2023-06-02)
+
+#### :boom: Breaking Change
+* [#25](https://github.com/qonto/ember-prismic-dom/pull/25) Drop node 14 support ([@vscav](https://github.com/vscav))
+#### :rocket: Enhancement
+* [#22](https://github.com/qonto/ember-prismic-dom/pull/22) Wrap unsafe component invocation with ensure-safe-component ([@poulet42](https://github.com/poulet42))
+#### :house: Internal
+* [#24](https://github.com/qonto/ember-prismic-dom/pull/24) Migrate from yarn to pnpm ([@vscav](https://github.com/vscav))
+#### Committers: 2
+* Corentin ([@poulet42](https://github.com/poulet42))
+* Vincent Scavinner ([@vscav](https://github.com/vscav))
 
 ## v3.0.0 (2023-04-21)
 
