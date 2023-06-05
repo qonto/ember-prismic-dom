@@ -51,8 +51,7 @@ jobs:
         with:
           pnpm-version: 8.6.0
           node-version: "${{ env.NODE_VERSION }}"
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+          args: "--frozen-lockfile"
       - name: Lint
         run: pnpm lint
 
@@ -74,8 +73,7 @@ jobs:
         with:
           pnpm-version: 8.6.0
           node-version: "${{ env.NODE_VERSION }}"
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+          args: "--frozen-lockfile"
       - name: Run Tests
         run: pnpm test:ember --launch ${{ matrix.browser }}
         working-directory: test-app
@@ -99,8 +97,6 @@ jobs:
           pnpm-version: 8.6.0
           node-version: "${{ env.NODE_VERSION }}"
           no-lockfile: true
-      - name: Install dependencies
-        run: pnpm install --no-lockfile
       - name: Run tests
         run: pnpm test:ember
         working-directory: test-app
@@ -138,8 +134,7 @@ jobs:
         with:
           pnpm-version: 8.6.0
           node-version: "${{ env.NODE_VERSION }}"
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          args: "--frozen-lockfile"
       - name: Run tests
         run: pnpm ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
         working-directory: test-app
