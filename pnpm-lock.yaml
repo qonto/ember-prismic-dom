@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -82,8 +82,8 @@ importers:
         specifier: ^11.1.0
         version: 11.1.0(eslint@8.41.0)
       eslint-plugin-prettier:
-        specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.41.0)(prettier@2.8.8)
+        specifier: ^5.0.0
+        version: 5.0.0(eslint-config-prettier@8.8.0)(eslint@8.41.0)(prettier@2.8.8)
       prettier:
         specifier: ^2.8.8
         version: 2.8.8
@@ -209,8 +209,8 @@ importers:
         specifier: ^15.7.0
         version: 15.7.0(eslint@8.40.0)
       eslint-plugin-prettier:
-        specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.40.0)(prettier@2.8.8)
+        specifier: ^5.0.0
+        version: 5.0.0(eslint-config-prettier@8.8.0)(eslint@8.40.0)(prettier@2.8.8)
       eslint-plugin-qunit:
         specifier: ^7.3.4
         version: 7.3.4(eslint@8.40.0)
@@ -2358,7 +2358,7 @@ packages:
       fs-extra: 9.1.0
       proper-lockfile: 4.1.2
       slash: 3.0.0
-      tslib: 2.5.2
+      tslib: 2.6.2
       upath: 2.0.1
     dev: true
 
@@ -2577,6 +2577,18 @@ packages:
     resolution: {integrity: sha512-MMeLdHyFIALioycq+LFcA71v0S2xpQUX2cw6pPbHQjaibcHYwLnmK/kMZaWuGfGfjBJZ3wRUq+dOaWsvrPJVvA==}
     dependencies:
       '@octokit/openapi-types': 17.2.0
+    dev: true
+
+  /@pkgr/utils@2.4.2:
+    resolution: {integrity: sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==}
+    engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+    dependencies:
+      cross-spawn: 7.0.3
+      fast-glob: 3.3.1
+      is-glob: 4.0.3
+      open: 9.1.0
+      picocolors: 1.0.0
+      tslib: 2.6.2
     dev: true
 
   /@pnpm/config.env-replace@1.1.0:
@@ -3431,7 +3443,7 @@ packages:
     resolution: {integrity: sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.5.2
+      tslib: 2.6.2
     dev: true
 
   /astral-regex@2.0.0:
@@ -5698,7 +5710,7 @@ packages:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.2
+      tslib: 2.6.2
     dev: true
 
   /dot-prop@5.3.0:
@@ -6993,14 +7005,17 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.40.0)(prettier@2.8.8):
-    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
-    engines: {node: '>=12.0.0'}
+  /eslint-plugin-prettier@5.0.0(eslint-config-prettier@8.8.0)(eslint@8.40.0)(prettier@2.8.8):
+    resolution: {integrity: sha512-AgaZCVuYDXHUGxj/ZGu1u8H8CYgDY3iG6w5kUFw4AzMVXzB7VvbKgYR4nATIN+OvUrghMbiDLeimVjVY5ilq3w==}
+    engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
-      eslint: '>=7.28.0'
+      '@types/eslint': '>=8.0.0'
+      eslint: '>=8.0.0'
       eslint-config-prettier: '*'
-      prettier: '>=2.0.0'
+      prettier: '>=3.0.0'
     peerDependenciesMeta:
+      '@types/eslint':
+        optional: true
       eslint-config-prettier:
         optional: true
     dependencies:
@@ -7008,16 +7023,20 @@ packages:
       eslint-config-prettier: 8.8.0(eslint@8.40.0)
       prettier: 2.8.8
       prettier-linter-helpers: 1.0.0
+      synckit: 0.8.5
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.41.0)(prettier@2.8.8):
-    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
-    engines: {node: '>=12.0.0'}
+  /eslint-plugin-prettier@5.0.0(eslint-config-prettier@8.8.0)(eslint@8.41.0)(prettier@2.8.8):
+    resolution: {integrity: sha512-AgaZCVuYDXHUGxj/ZGu1u8H8CYgDY3iG6w5kUFw4AzMVXzB7VvbKgYR4nATIN+OvUrghMbiDLeimVjVY5ilq3w==}
+    engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
-      eslint: '>=7.28.0'
+      '@types/eslint': '>=8.0.0'
+      eslint: '>=8.0.0'
       eslint-config-prettier: '*'
-      prettier: '>=2.0.0'
+      prettier: '>=3.0.0'
     peerDependenciesMeta:
+      '@types/eslint':
+        optional: true
       eslint-config-prettier:
         optional: true
     dependencies:
@@ -7025,6 +7044,7 @@ packages:
       eslint-config-prettier: 8.8.0(eslint@8.41.0)
       prettier: 2.8.8
       prettier-linter-helpers: 1.0.0
+      synckit: 0.8.5
     dev: true
 
   /eslint-plugin-qunit@7.3.4(eslint@8.40.0):
@@ -7477,6 +7497,17 @@ packages:
 
   /fast-glob@3.2.12:
     resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
+    engines: {node: '>=8.6.0'}
+    dependencies:
+      '@nodelib/fs.stat': 2.0.5
+      '@nodelib/fs.walk': 1.2.8
+      glob-parent: 5.1.2
+      merge2: 1.4.1
+      micromatch: 4.0.5
+    dev: true
+
+  /fast-glob@3.3.1:
+    resolution: {integrity: sha512-kNFPyjhh5cKjrUltxs+wFx+ZkbRaxxmZ+X0ZU31SOsxCEtP9VPgtq2teZw1DebupL5GmDaNQ6yKMMVcM41iqDg==}
     engines: {node: '>=8.6.0'}
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -8261,7 +8292,7 @@ packages:
       '@types/glob': 7.2.0
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.1
       glob: 7.2.3
       ignore: 5.2.4
       merge2: 1.4.1
@@ -8275,7 +8306,7 @@ packages:
       '@types/glob': 7.2.0
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.1
       glob: 7.2.3
       ignore: 5.2.4
       merge2: 1.4.1
@@ -8289,7 +8320,7 @@ packages:
       '@types/glob': 7.2.0
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.1
       glob: 7.2.3
       ignore: 5.2.4
       merge2: 1.4.1
@@ -8302,7 +8333,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.1
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
@@ -8313,7 +8344,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.1
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
@@ -8324,7 +8355,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.1
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
@@ -8738,6 +8769,7 @@ packages:
   /iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dependencies:
       safer-buffer: 2.1.2
     dev: true
@@ -9963,7 +9995,7 @@ packages:
   /lower-case@2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
-      tslib: 2.5.2
+      tslib: 2.6.2
     dev: true
 
   /lowercase-keys@1.0.1:
@@ -10774,7 +10806,7 @@ packages:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.5.2
+      tslib: 2.6.2
     dev: true
 
   /node-domexception@1.0.0:
@@ -12502,7 +12534,7 @@ packages:
   /rxjs@7.8.1:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
     dependencies:
-      tslib: 2.5.2
+      tslib: 2.6.2
     dev: true
 
   /sade@1.8.1:
@@ -12804,7 +12836,7 @@ packages:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.5.2
+      tslib: 2.6.2
     dev: true
 
   /snapdragon-node@2.1.1:
@@ -13446,6 +13478,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /synckit@0.8.5:
+    resolution: {integrity: sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    dependencies:
+      '@pkgr/utils': 2.4.2
+      tslib: 2.6.2
+    dev: true
+
   /table@6.8.1:
     resolution: {integrity: sha512-Y4X9zqrCftUhMeH2EptSSERdVKt/nEdijTOacGD/97EKjhQ/Qs8RTlEGABSJNNN8lac9kheH+af7yAkEWlgneA==}
     engines: {node: '>=10.0.0'}
@@ -13824,8 +13864,8 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
-  /tslib@2.5.2:
-    resolution: {integrity: sha512-5svOrSA2w3iGFDs1HibEVBGbDrAY82bFQ3HZ3ixB+88nsbsWQoKqDRb5UBYAUPEzbBn6dAp5gRNXglySbx1MlA==}
+  /tslib@2.6.2:
+    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: true
 
   /type-check@0.3.2:
