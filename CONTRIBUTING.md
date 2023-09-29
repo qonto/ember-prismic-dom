@@ -20,7 +20,6 @@
 
 - `cd test-app`
 - `pnpm test` – Runs the test suite on the current Ember version
-- `pnpm test:watch` – Runs the test suite in "watch mode"
 
 ## Running the test application
 
