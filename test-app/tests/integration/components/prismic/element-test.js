@@ -24,7 +24,7 @@ module('Integration | Component | prismic/element', function (hooks) {
         assert.deepEqual(node, this.node);
       };
       await render(
-        hbs`<Prismic::Element @node={{this.node}} @onUnknownTag={{this.onUnknownTag}} />`
+        hbs`<Prismic::Element @node={{this.node}} @onUnknownTag={{this.onUnknownTag}} />`,
       );
       assert.strictEqual(cleanHtml(this), '<!---->', 'not displayed');
     });
@@ -41,7 +41,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
       assert.strictEqual(
         cleanHtml(this),
-        '<em>Qonto The all-in-one business account</em>'
+        '<em>Qonto The all-in-one business account</em>',
       );
     });
 
@@ -57,7 +57,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
       assert.strictEqual(
         cleanHtml(this),
-        '<h1>Qonto The all-in-one business account</h1>'
+        '<h1>Qonto The all-in-one business account</h1>',
       );
     });
 
@@ -87,7 +87,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
       assert.strictEqual(
         cleanHtml(this),
-        '<a href="https://example.org" rel="noreferrer noopener" target="_blank">example</a>'
+        '<a href="https://example.org" rel="noreferrer noopener" target="_blank">example</a>',
       );
     });
 
@@ -107,7 +107,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
       assert.strictEqual(
         cleanHtml(this),
-        '<img alt="Qonto The all-in-one business account" copyright="qonto" src="/assets/img/connect/slack.png" width="500" height="400">'
+        '<img alt="Qonto The all-in-one business account" copyright="qonto" src="/assets/img/connect/slack.png" width="500" height="400">',
       );
     });
 
@@ -123,7 +123,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
       assert.strictEqual(
         cleanHtml(this),
-        '<p>Qonto The all-in-one business account</p>'
+        '<p>Qonto The all-in-one business account</p>',
       );
     });
 
@@ -139,7 +139,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
       assert.strictEqual(
         cleanHtml(this),
-        'Qonto The all-in-one business account'
+        'Qonto The all-in-one business account',
       );
     });
 
@@ -155,7 +155,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
       assert.strictEqual(
         cleanHtml(this),
-        '<pre>Qonto The all-in-one business account</pre>'
+        '<pre>Qonto The all-in-one business account</pre>',
       );
     });
 
@@ -171,7 +171,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
       assert.strictEqual(
         cleanHtml(this),
-        '<strong>Qonto The all-in-one business account</strong>'
+        '<strong>Qonto The all-in-one business account</strong>',
       );
     });
 
@@ -187,7 +187,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       await render(hbs`<Prismic::Element @node={{this.node}} />`);
       assert.strictEqual(
         cleanHtml(this),
-        '<label>Qonto The all-in-one business account</label>'
+        '<label>Qonto The all-in-one business account</label>',
       );
     });
   });
@@ -316,7 +316,7 @@ module('Integration | Component | prismic/element', function (hooks) {
 
       assert.strictEqual(
         cleanHtml(this),
-        '<p>This is some text with <strong>overla</strong><em><strong>pp</strong>ings</em> spans and here</p>'
+        '<p>This is some text with <strong>overla</strong><em><strong>pp</strong>ings</em> spans and here</p>',
       );
     });
 
@@ -452,7 +452,7 @@ module('Integration | Component | prismic/element', function (hooks) {
 
       assert.strictEqual(
         cleanHtml(this),
-        '<p><em>A </em><a href="https://example.org" rel="noreferrer noopener" target="_blank"><em>li<strong></strong></em><strong>nk</strong></a><strong> wi</strong>th overlap</p>'
+        '<p><em>A </em><a href="https://example.org" rel="noreferrer noopener" target="_blank"><em>li<strong></strong></em><strong>nk</strong></a><strong> wi</strong>th overlap</p>',
       );
     });
   });
