@@ -23,7 +23,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
       class Hyperlink extends Component {}
       setComponentTemplate(
         hbs`<a href={{@node.element.data.url}}>{{yield}}</a>`,
-        Hyperlink
+        Hyperlink,
       );
 
       this.hyperlink = Hyperlink;
@@ -44,11 +44,11 @@ module('Integration | Component | prismic/dom', function (hooks) {
       ];
 
       await render(
-        hbs`<Prismic::Dom @nodes={{this.nodes}} @hyperlink={{this.hyperlink}} />`
+        hbs`<Prismic::Dom @nodes={{this.nodes}} @hyperlink={{this.hyperlink}} />`,
       );
       assert.strictEqual(
         cleanHtml(this),
-        '<div><p>A <a href="https://example.org">link</a> to somewhere</p></div>'
+        '<div><p>A <a href="https://example.org">link</a> to somewhere</p></div>',
       );
     });
 
@@ -72,12 +72,12 @@ module('Integration | Component | prismic/dom', function (hooks) {
       this.owner.register('component:super-custom', SuperCustom);
 
       await render(
-        hbs`<Prismic::Dom @nodes={{this.nodes}} @super-custom="super-custom" />`
+        hbs`<Prismic::Dom @nodes={{this.nodes}} @super-custom="super-custom" />`,
       );
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><p>A <mark>fancy</mark> component</p></div>'
+        '<div><p>A <mark>fancy</mark> component</p></div>',
       );
     });
 
@@ -97,19 +97,19 @@ module('Integration | Component | prismic/dom', function (hooks) {
       this.listItem = '';
 
       await render(
-        hbs`<Prismic::Dom @nodes={{this.nodes}} @group-list-item={{this.groupListItem}} @list-item={{this.listItem}}/>`
+        hbs`<Prismic::Dom @nodes={{this.nodes}} @group-list-item={{this.groupListItem}} @list-item={{this.listItem}}/>`,
       );
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><ul><li>one</li><li>two</li>elephant</ul></div>'
+        '<div><ul><li>one</li><li>two</li>elephant</ul></div>',
       );
 
       this.set('listItem', ListItem);
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><ul><li>one bananna</li><li>two bananna</li>elephant</ul></div>'
+        '<div><ul><li>one bananna</li><li>two bananna</li>elephant</ul></div>',
       );
     });
   });
@@ -125,7 +125,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><ol><li>one</li><li>two</li></ol></div>'
+        '<div><ol><li>one</li><li>two</li></ol></div>',
       );
     });
 
@@ -145,7 +145,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><p>This is some text with <strong>overla</strong><em><strong>pp</strong>ings</em> spans and here</p></div>'
+        '<div><p>This is some text with <strong>overla</strong><em><strong>pp</strong>ings</em> spans and here</p></div>',
       );
     });
 
@@ -171,7 +171,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><p><em>A </em><a href="https://example.org" rel="noreferrer noopener" target="_blank"><em>li<strong></strong></em><strong>nk</strong></a><strong> wi</strong>th overlap</p></div>'
+        '<div><p><em>A </em><a href="https://example.org" rel="noreferrer noopener" target="_blank"><em>li<strong></strong></em><strong>nk</strong></a><strong> wi</strong>th overlap</p></div>',
       );
     });
   });
