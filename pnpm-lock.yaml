@@ -33,8 +33,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       ember-element-helper:
-        specifier: ^0.8.4
-        version: 0.8.4(ember-source@4.12.0)
+        specifier: ^0.8.5
+        version: 0.8.5(ember-source@4.12.0)
       ember-source:
         specifier: ^3.28.0 || ^4.0.0
         version: 4.12.0(@babel/core@7.23.2)(@glimmer/component@1.1.2)(webpack@5.89.0)
@@ -6184,8 +6184,8 @@ packages:
     engines: {node: '>= 0.10.0'}
     dev: true
 
-  /ember-element-helper@0.8.4(ember-source@4.12.0):
-    resolution: {integrity: sha512-zwCRNgCuTr+bSGtGh1eWHlNZuhJQuREeQmmv7pfTTAFICAzAOO7p7sCVIITcn0l9cUM2KW5uQY2FK4967bYMdw==}
+  /ember-element-helper@0.8.5(ember-source@4.12.0):
+    resolution: {integrity: sha512-yZYzuasn6ZC8Nwv0MpaLYGtm68ZxIBSNSe/CYxNWkDdgcuAb2lAG1gx37XkwBIiwPQET0W2agwq7++/HwdMF8g==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       ember-source: ^3.8 || ^4.0.0 || >= 5.0.0
