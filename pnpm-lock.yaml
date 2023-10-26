@@ -52,8 +52,8 @@ importers:
         specifier: ^7.23.0
         version: 7.23.0(@babel/core@7.23.2)
       '@babel/plugin-syntax-decorators':
-        specifier: ^7.17.0
-        version: 7.17.0(@babel/core@7.23.2)
+        specifier: ^7.22.10
+        version: 7.22.10(@babel/core@7.23.2)
       '@babel/runtime':
         specifier: ^7.23.2
         version: 7.23.2
@@ -443,11 +443,6 @@ packages:
     dependencies:
       '@babel/types': 7.23.0
 
-  /@babel/helper-plugin-utils@7.21.5:
-    resolution: {integrity: sha512-0WDaIlXKOX/3KfBK/dwP1oQGiPh6rjMkT7HIRv7i5RR2VUMwrx5ZL0dwBkKx7+SW1zwNdgjHd34IMk5ZjTeHVg==}
-    engines: {node: '>=6.9.0'}
-    dev: true
-
   /@babel/helper-plugin-utils@7.22.5:
     resolution: {integrity: sha512-uLls06UVKgFG9QD4OeFYLEGteMIAa5kpTPcFL28yuCIIzsf6ZyKZMllKVOCZFhiZ5ptnwX4mtKdWCBE/uT4amg==}
     engines: {node: '>=6.9.0'}
@@ -646,16 +641,6 @@ packages:
     dependencies:
       '@babel/core': 7.23.2
       '@babel/helper-plugin-utils': 7.22.5
-
-  /@babel/plugin-syntax-decorators@7.17.0(@babel/core@7.23.2):
-    resolution: {integrity: sha512-qWe85yCXsvDEluNP0OyeQjH63DlhAR3W7K9BxxU1MvbDb48tgBG+Ao6IJJ6smPDrrVzSQZrbF6donpkFBMcs3A==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.23.2
-      '@babel/helper-plugin-utils': 7.21.5
-    dev: true
 
   /@babel/plugin-syntax-decorators@7.22.10(@babel/core@7.23.2):
     resolution: {integrity: sha512-z1KTVemBjnz+kSEilAsI4lbkPOl5TvJH7YDSY1CTIzvLWJ+KHXp+mRe8VPmfnyvqOPqar1V2gid2PleKzRUstQ==}
