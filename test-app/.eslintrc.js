@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -47,11 +47,16 @@ module.exports = {
       },
       extends: ['plugin:n/recommended'],
     },
+    // test files
     {
-      // test files
       files: ['tests/**/*-test.{js,ts}'],
       extends: ['plugin:qunit/recommended'],
       rules: { 'ember/no-empty-glimmer-component-classes': 'off' },
+    },
+    // ts files
+    {
+      files: ['**/*.ts'],
+      extends: ['@qonto/eslint-config-typescript'],
     },
   ],
 };
