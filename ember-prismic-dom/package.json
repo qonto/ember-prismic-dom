@@ -28,7 +28,7 @@
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0",
     "@prismicio/richtext": "^1.1.0",
-    "ember-element-helper": "^0.8.4"
+    "ember-element-helper": "^0.8.5"
   },
   "devDependencies": {
     "@babel/core": "7.23.2",
