@@ -27,8 +27,8 @@ importers:
   ember-prismic-dom:
     dependencies:
       '@embroider/addon-shim':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.8.6
+        version: 1.8.6
       '@prismicio/richtext':
         specifier: ^1.1.0
         version: 1.1.0
@@ -1864,14 +1864,6 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@embroider/addon-shim@1.0.0:
-    resolution: {integrity: sha512-RkUkQDe56M/15pA7rAL9mTdxYnw/MukQYM2JcJ+9x8mTjkFc6mRnuHVdjVt/r6mUw9YG6FvN3G5nIadsDdXTyQ==}
-    engines: {node: 12.* || 14.* || >= 16}
-    dependencies:
-      '@embroider/shared-internals': 1.8.3
-      semver: 7.5.1
-    dev: false
-
   /@embroider/addon-shim@1.8.3:
     resolution: {integrity: sha512-7pyHwzT6ESXc3nZsB8rfnirLkUhQWdvj6CkYH+0MUPN74mX4rslf7pnBqZE/KZkW3uBIaBYvU8fxi0hcKC/Paw==}
     engines: {node: 12.* || 14.* || >= 16}
@@ -1879,17 +1871,6 @@ packages:
       '@embroider/shared-internals': 1.8.3
       semver: 7.5.4
     dev: false
-
-  /@embroider/addon-shim@1.8.5:
-    resolution: {integrity: sha512-pDgpdTsC9i/+5hHziygK5VIZc64OG8bupiqL0OxJp+bnINURalHMbu5B3Gikq/a0QIvMPzDFWzKxIZCBpeiHkg==}
-    engines: {node: 12.* || 14.* || >= 16}
-    dependencies:
-      '@embroider/shared-internals': 2.5.0
-      broccoli-funnel: 3.0.8
-      semver: 7.5.4
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
 
   /@embroider/addon-shim@1.8.6:
     resolution: {integrity: sha512-siC9kP78uucEbpDcVyxjkwa76pcs5rVzDVpWO4PDc9EAXRX+pzmUuSTLAK3GztUwx7/PWhz1BenAivqdSvSgfg==}
@@ -1900,7 +1881,6 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@embroider/core@2.1.1:
     resolution: {integrity: sha512-N4rz+r8WjHYmwprvBYC0iUT4EWNpdDjF7JLl8PEYlWbhXDEJL+Ma/aP78S7spMhIpJX9SHK7nbgNxmZAqAe34A==}
@@ -6235,7 +6215,7 @@ packages:
       ember-source:
         optional: true
     dependencies:
-      '@embroider/addon-shim': 1.8.5
+      '@embroider/addon-shim': 1.8.6
       ember-cli-normalize-entity-name: 1.0.0
       ember-cli-string-utils: 1.1.0
       ember-source: 4.12.0(@babel/core@7.23.2)(@glimmer/component@1.1.2)(webpack@5.89.0)
@@ -13329,7 +13309,7 @@ packages:
   /tracked-built-ins@3.3.0:
     resolution: {integrity: sha512-ewKFrW/AQs05oLPM5isOUb/1aOwBRfHfmF408CCzTk21FLAhKrKVOP5Q5ebX+zCT4kvg81PGBGwrBiEGND1nWA==}
     dependencies:
-      '@embroider/addon-shim': 1.8.5
+      '@embroider/addon-shim': 1.8.6
       ember-tracked-storage-polyfill: 1.0.0
     transitivePeerDependencies:
       - supports-color
