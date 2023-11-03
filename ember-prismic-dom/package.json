@@ -39,7 +39,7 @@
     "@babel/runtime": "^7.23.2",
     "@embroider/addon-dev": "^3.0.0",
     "@rollup/plugin-babel": "^6.0.4",
-    "concurrently": "^8.2.1",
+    "concurrently": "^8.2.2",
     "ember-template-lint": "^5.11.2",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
