@@ -1,11 +1,13 @@
 {{~#if this.isCustom~}}
-  {{~#component (ensure-safe-component this.componentName) node=@node~}}
-    <Prismic::Children
-      @componentNames={{@componentNames}}
-      @node={{@node}}
-      @onUnknownTag={{@onUnknownTag}}
-    />
-  {{~/component~}}
+  {{~#let (ensure-safe-component this.componentName) as |CustomComponent|~}}
+    {{~#CustomComponent node=@node~}}
+      <Prismic::Children
+        @componentNames={{@componentNames}}
+        @node={{@node}}
+        @onUnknownTag={{@onUnknownTag}}
+      />
+    {{~/CustomComponent~}}
+  {{~/let~}}
 {{~else if (eq @node.type 'image')~}}
   <Prismic::Image @node={{@node}} />
 {{~else if (eq @node.type 'span')~}}
