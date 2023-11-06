@@ -31,7 +31,7 @@ export default class PrismicElementComponent extends Component {
   }
 
   get target() {
-    return this.args.node.element.data.value?.target || '_blank';
+    return this.args.node.node.data.value?.target || '_blank';
   }
 
   get isCustom() {

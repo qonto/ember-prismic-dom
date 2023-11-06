@@ -14,7 +14,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       assert.expect(2);
       this.node = {
         type: 'figure',
-        element: {
+        node: {
           type: 'figure',
           text: 'Qonto The all-in-one business account',
           spans: [],
@@ -32,7 +32,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('em', async function (assert) {
       this.node = {
         type: 'em',
-        element: {
+        node: {
           type: 'em',
           text: 'Qonto The all-in-one business account',
           spans: [],
@@ -48,7 +48,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('heading', async function (assert) {
       this.node = {
         type: 'heading1',
-        element: {
+        node: {
           type: 'heading1',
           text: 'Qonto The all-in-one business account',
           spans: [],
@@ -64,7 +64,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('hyperlink', async function (assert) {
       this.node = {
         type: 'hyperlink',
-        element: {
+        node: {
           start: 0,
           end: 7,
           type: 'hyperlink',
@@ -73,7 +73,7 @@ module('Integration | Component | prismic/element', function (hooks) {
         children: [
           {
             type: 'span',
-            element: { type: 'span', start: 0, end: 7, text: 'example' },
+            node: { type: 'span', start: 0, end: 7, text: 'example' },
             children: [],
             start: 0,
             end: 7,
@@ -94,7 +94,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('image', async function (assert) {
       this.node = {
         type: 'image',
-        element: {
+        node: {
           alt: 'Qonto The all-in-one business account',
           copyright: 'qonto',
           width: '500',
@@ -114,7 +114,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('paragraph', async function (assert) {
       this.node = {
         type: 'paragraph',
-        element: {
+        node: {
           type: 'paragraph',
           text: 'Qonto The all-in-one business account',
           spans: [],
@@ -130,7 +130,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('span', async function (assert) {
       this.node = {
         type: 'span',
-        element: {
+        node: {
           type: 'span',
           text: 'Qonto The all-in-one business account',
           spans: [],
@@ -146,7 +146,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('preformatted', async function (assert) {
       this.node = {
         type: 'preformatted',
-        element: {
+        node: {
           type: 'performatted',
           text: 'Qonto The all-in-one business account',
           spans: [],
@@ -162,7 +162,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('strong', async function (assert) {
       this.node = {
         type: 'strong',
-        element: {
+        node: {
           type: 'strong',
           text: 'Qonto The all-in-one business account',
           spans: [],
@@ -178,7 +178,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('label', async function (assert) {
       this.node = {
         type: 'label',
-        element: {
+        node: {
           type: 'label',
           text: 'Qonto The all-in-one business account',
           spans: [],
@@ -196,11 +196,11 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('list', async function (assert) {
       this.node = {
         type: 'group-list-item',
-        element: { type: 'group-list-item', spans: [], text: '' },
+        node: { type: 'group-list-item', spans: [], text: '' },
         children: [
           {
             type: 'list-item',
-            element: {
+            node: {
               type: 'list-item',
               text: 'one',
               spans: [],
@@ -208,7 +208,7 @@ module('Integration | Component | prismic/element', function (hooks) {
           },
           {
             type: 'list-item',
-            element: {
+            node: {
               type: 'list-item',
               text: 'two',
               spans: [],
@@ -223,7 +223,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('it renders', async function (assert) {
       this.node = {
         type: 'paragraph',
-        element: {
+        node: {
           type: 'paragraph',
           text: 'This is some text with overlappings spans and here',
           spans: [
@@ -234,7 +234,7 @@ module('Integration | Component | prismic/element', function (hooks) {
         children: [
           {
             type: 'span',
-            element: {
+            node: {
               type: 'span',
               start: 0,
               end: 23,
@@ -247,11 +247,11 @@ module('Integration | Component | prismic/element', function (hooks) {
           },
           {
             type: 'strong',
-            element: { start: 23, end: 31, type: 'strong' },
+            node: { start: 23, end: 31, type: 'strong' },
             children: [
               {
                 type: 'span',
-                element: { type: 'span', start: 23, end: 29, text: 'overla' },
+                node: { type: 'span', start: 23, end: 29, text: 'overla' },
                 children: [],
                 start: 23,
                 end: 29,
@@ -264,15 +264,15 @@ module('Integration | Component | prismic/element', function (hooks) {
           },
           {
             type: 'em',
-            element: { start: 29, end: 35, type: 'em' },
+            node: { start: 29, end: 35, type: 'em' },
             children: [
               {
                 type: 'strong',
-                element: { start: 23, end: 31, type: 'strong' },
+                node: { start: 23, end: 31, type: 'strong' },
                 children: [
                   {
                     type: 'span',
-                    element: { type: 'span', start: 29, end: 31, text: 'pp' },
+                    node: { type: 'span', start: 29, end: 31, text: 'pp' },
                     children: [],
                     start: 29,
                     end: 31,
@@ -285,7 +285,7 @@ module('Integration | Component | prismic/element', function (hooks) {
               },
               {
                 type: 'span',
-                element: { type: 'span', start: 31, end: 35, text: 'ings' },
+                node: { type: 'span', start: 31, end: 35, text: 'ings' },
                 children: [],
                 start: 31,
                 end: 35,
@@ -298,7 +298,7 @@ module('Integration | Component | prismic/element', function (hooks) {
           },
           {
             type: 'span',
-            element: {
+            node: {
               type: 'span',
               start: 35,
               end: 50,
@@ -323,7 +323,7 @@ module('Integration | Component | prismic/element', function (hooks) {
     test('it renders links with overlapping styles', async function (assert) {
       this.node = {
         type: 'paragraph',
-        element: {
+        node: {
           type: 'paragraph',
           text: 'A link with overlap',
           spans: [
@@ -340,11 +340,11 @@ module('Integration | Component | prismic/element', function (hooks) {
         children: [
           {
             type: 'em',
-            element: { start: 0, end: 4, type: 'em' },
+            node: { start: 0, end: 4, type: 'em' },
             children: [
               {
                 type: 'span',
-                element: { type: 'span', start: 0, end: 2, text: 'A ' },
+                node: { type: 'span', start: 0, end: 2, text: 'A ' },
                 children: [],
                 start: 0,
                 end: 2,
@@ -357,7 +357,7 @@ module('Integration | Component | prismic/element', function (hooks) {
           },
           {
             type: 'hyperlink',
-            element: {
+            node: {
               start: 2,
               end: 6,
               type: 'hyperlink',
@@ -366,11 +366,11 @@ module('Integration | Component | prismic/element', function (hooks) {
             children: [
               {
                 type: 'em',
-                element: { start: 0, end: 4, type: 'em' },
+                node: { start: 0, end: 4, type: 'em' },
                 children: [
                   {
                     type: 'span',
-                    element: { type: 'span', start: 2, end: 4, text: 'li' },
+                    node: { type: 'span', start: 2, end: 4, text: 'li' },
                     children: [],
                     start: 2,
                     end: 4,
@@ -378,11 +378,11 @@ module('Integration | Component | prismic/element', function (hooks) {
                   },
                   {
                     type: 'strong',
-                    element: { start: 4, end: 9, type: 'strong' },
+                    node: { start: 4, end: 9, type: 'strong' },
                     children: [
                       {
                         type: 'span',
-                        element: { type: 'span', start: 4, end: 4, text: '' },
+                        node: { type: 'span', start: 4, end: 4, text: '' },
                         children: [],
                         start: 4,
                         end: 4,
@@ -400,11 +400,11 @@ module('Integration | Component | prismic/element', function (hooks) {
               },
               {
                 type: 'strong',
-                element: { start: 4, end: 9, type: 'strong' },
+                node: { start: 4, end: 9, type: 'strong' },
                 children: [
                   {
                     type: 'span',
-                    element: { type: 'span', start: 4, end: 6, text: 'nk' },
+                    node: { type: 'span', start: 4, end: 6, text: 'nk' },
                     children: [],
                     start: 4,
                     end: 6,
@@ -422,11 +422,11 @@ module('Integration | Component | prismic/element', function (hooks) {
           },
           {
             type: 'strong',
-            element: { start: 4, end: 9, type: 'strong' },
+            node: { start: 4, end: 9, type: 'strong' },
             children: [
               {
                 type: 'span',
-                element: { type: 'span', start: 6, end: 9, text: ' wi' },
+                node: { type: 'span', start: 6, end: 9, text: ' wi' },
                 children: [],
                 start: 6,
                 end: 9,
@@ -439,7 +439,7 @@ module('Integration | Component | prismic/element', function (hooks) {
           },
           {
             type: 'span',
-            element: { type: 'span', start: 9, end: 19, text: 'th overlap' },
+            node: { type: 'span', start: 9, end: 19, text: 'th overlap' },
             children: [],
             start: 9,
             end: 19,
