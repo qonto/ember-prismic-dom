@@ -30,8 +30,8 @@ importers:
         specifier: ^1.8.6
         version: 1.8.6
       '@prismicio/richtext':
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^2.1.5
+        version: 2.1.5
       ember-element-helper:
         specifier: ^0.8.5
         version: 0.8.5(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-source@5.3.0)
@@ -158,8 +158,8 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1
       '@prismicio/richtext':
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^2.1.5
+        version: 2.1.5
       '@qonto/eslint-config-typescript':
         specifier: 1.0.0-rc.0
         version: 1.0.0-rc.0(eslint@8.53.0)(typescript@5.2.2)
@@ -2470,8 +2470,15 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@prismicio/richtext@1.1.0:
-    resolution: {integrity: sha512-925JuFiZiIkwu9jmlR9O/U8xCSZk/Y6BQDXKpavoVsKo+n90ml1hGdtWkglIupX+ITQO1ZINyDgUgiY1oG9dsA==}
+  /@prismicio/richtext@2.1.5:
+    resolution: {integrity: sha512-Sf6iCsciPmfK3uQeFmeY9RTRSuhrCVzyU39OkiJ1VJn8O0531pKapGoWS+5WGxouJtE5+jGqV8L+L2mKP7NkXQ==}
+    engines: {node: '>=12.7.0'}
+    dependencies:
+      '@prismicio/types': 0.2.8
+
+  /@prismicio/types@0.2.8:
+    resolution: {integrity: sha512-EmuYYil56U+UtEifMD/9TmLzpWliV+X6kypwPq47GNXmIXyFK1JsP3z872fUziXwoBjd2YILj28DNdYXlLOpXg==}
+    engines: {node: '>=12.7.0'}
 
   /@qonto/eslint-config-typescript@1.0.0-rc.0(eslint@8.53.0)(typescript@5.2.2):
     resolution: {integrity: sha512-laAtWhbOEaJH/Rq649bDM4gUW1OfVMNOgKe1Fg1R0/pCCmQgQ6AP0dz97Yj390HvHC4EDwiaPh8c7+agL/KY8A==}
