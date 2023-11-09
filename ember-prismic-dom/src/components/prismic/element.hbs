@@ -1,13 +1,13 @@
 {{! @glint-nocheck: not typesafe yet }}
 {{~#if this.isCustom~}}
   {{~#let (ensure-safe-component this.componentName) as |CustomComponent|~}}
-    {{~#CustomComponent node=@node~}}
+    <CustomComponent @node={{@node}}>
       <Prismic::Children
         @componentNames={{@componentNames}}
         @node={{@node}}
         @onUnknownTag={{@onUnknownTag}}
       />
-    {{~/CustomComponent~}}
+    </CustomComponent>
   {{~/let~}}
 {{~else if (eq @node.type 'image')~}}
   <Prismic::Image @node={{@node}} />

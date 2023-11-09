@@ -85,8 +85,8 @@ module('Integration | Component | prismic/dom', function (hooks) {
       class GroupListItem extends Component {}
       class ListItem extends Component {}
 
-      setComponentTemplate(hbs`<ul>{{~yield~}}elephant</ul>`, GroupListItem);
-      setComponentTemplate(hbs`<li>{{~yield}} bananna</li>`, ListItem);
+      setComponentTemplate(hbs`<ul>{{~yield~}} elephant</ul>`, GroupListItem);
+      setComponentTemplate(hbs`<li>{{~yield}} banana</li>`, ListItem);
 
       this.nodes = [
         { type: 'list-item', text: 'one', spans: [] },
@@ -102,14 +102,14 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><ul><li>one</li><li>two</li>elephant</ul></div>',
+        '<div><ul><li>one</li><li>two</li> elephant</ul></div>',
       );
 
       this.set('listItem', ListItem);
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><ul><li>one bananna</li><li>two bananna</li>elephant</ul></div>',
+        '<div><ul><li> one banana</li><li> two banana</li> elephant</ul></div>',
       );
     });
   });
