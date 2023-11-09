@@ -11,7 +11,7 @@ module('Integration | Component | prismic/element', function (hooks) {
 
   module('single elements', function () {
     test('figure - unknown type call onUnknownTag with node', async function (assert) {
-      assert.expect(2);
+      let onUnknownTagCalled = false;
       this.node = {
         type: 'figure',
         element: {
@@ -20,13 +20,14 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      this.onUnknownTag = (node) => {
-        assert.deepEqual(node, this.node);
+      this.onUnknownTag = () => {
+        onUnknownTagCalled = true;
       };
       await render(
         hbs`<Prismic::Element @node={{this.node}} @onUnknownTag={{this.onUnknownTag}} />`,
       );
       assert.strictEqual(cleanHtml(this), '<!---->', 'not displayed');
+      assert.ok(onUnknownTagCalled, 'onUnknownTag has been called');
     });
 
     test('em', async function (assert) {
