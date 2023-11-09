@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 
-import PrismicRichText from '@prismicio/richtext';
+import { asTree } from '@prismicio/richtext';
 
 export default class PrismicDomComponent extends Component {
   get tree() {
-    return PrismicRichText.asTree(this.args.nodes || []);
+    return asTree(this.args.nodes || []);
   }
 
   get isString() {

@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.6",
-    "@prismicio/richtext": "^1.1.0",
+    "@prismicio/richtext": "^2.1.5",
     "ember-element-helper": "^0.8.5"
   },
   "devDependencies": {

@@ -19,7 +19,7 @@
   />
 {{~else if (eq @node.type 'hyperlink')~}}
   <a
-    href={{@node.element.data.url}}
+    href={{@node.node.data.url}}
     rel='noreferrer noopener'
     target={{this.target}}
   ><Prismic::Children

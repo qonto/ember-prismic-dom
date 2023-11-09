@@ -22,7 +22,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
     test('hyperlink', async function (assert) {
       class Hyperlink extends Component {}
       setComponentTemplate(
-        hbs`<a href={{@node.element.data.url}}>{{yield}}</a>`,
+        hbs`<a href={{@node.node.data.url}}>{{yield}}</a>`,
         Hyperlink,
       );
 
@@ -145,7 +145,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><p>This is some text with <strong>overla</strong><em><strong>pp</strong>ings</em> spans and here</p></div>',
+        '<div><p>This is some text with <strong>overla<em>pp</em></strong><em>ings</em> spans and here</p></div>',
       );
     });
 
@@ -171,7 +171,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
 
       assert.strictEqual(
         cleanHtml(this),
-        '<div><p><em>A </em><a href="https://example.org" rel="noreferrer noopener" target="_blank"><em>li<strong></strong></em><strong>nk</strong></a><strong> wi</strong>th overlap</p></div>',
+        '<div><p><em>A <a href="https://example.org" rel="noreferrer noopener" target="_blank">li</a></em><a href="https://example.org" rel="noreferrer noopener" target="_blank"><strong>nk</strong></a><strong> wi</strong>th overlap</p></div>',
       );
     });
   });

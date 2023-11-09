@@ -77,7 +77,7 @@ _my-list.hbs_
 _my-hyperlink.hbs_
 
 ```hbs
-<a href={{@node.element.data.url}}>{{yield}}</a>
+<a href={{@node.node.data.url}}>{{yield}}</a>
 ```
 
 ### Use existing addons
@@ -91,7 +91,7 @@ For example you want to use [`ember-async-image`](https://github.com/html-next/e
 _image.hbs_
 
 ```hbs
-<AsyncImage src={{@node.element.url}} />
+<AsyncImage src={{@node.node.url}} />
 ```
 
 ### Migrating from prismic-dom

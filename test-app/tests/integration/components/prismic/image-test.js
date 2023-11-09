@@ -12,7 +12,7 @@ module('Integration | Component | prismic/image', function (hooks) {
   test('image', async function (assert) {
     this.node = {
       type: 'image',
-      element: {
+      node: {
         alt: 'Qonto The all-in-one business account',
         copyright: 'qonto',
         width: '500',
@@ -32,7 +32,7 @@ module('Integration | Component | prismic/image', function (hooks) {
   test('image with linkUrl', async function (assert) {
     this.node = {
       type: 'image',
-      element: {
+      node: {
         alt: 'Qonto The all-in-one business account',
         copyright: 'qonto',
         width: '500',
@@ -53,7 +53,7 @@ module('Integration | Component | prismic/image', function (hooks) {
   test('image with linkUrl and linkTarget', async function (assert) {
     this.node = {
       type: 'image',
-      element: {
+      node: {
         alt: 'Qonto The all-in-one business account',
         copyright: 'qonto',
         width: '500',
