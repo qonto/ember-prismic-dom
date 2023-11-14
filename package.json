@@ -27,7 +27,7 @@
     "test-app"
   ],
   "engines": {
-    "node": "16.* || >= 18"
+    "node": ">= 18"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
