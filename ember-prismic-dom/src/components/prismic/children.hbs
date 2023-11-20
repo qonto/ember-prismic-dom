@@ -1,4 +1,3 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{~#each @node.children as |child|~}}
   <Prismic::Element
     @componentNames={{@componentNames}}
@@ -6,5 +5,5 @@
     @onUnknownTag={{@onUnknownTag}}
   />
 {{~else~}}
-  {{~@node.node.text~}}
+  {{~this.node.text~}}
 {{~/each~}}
