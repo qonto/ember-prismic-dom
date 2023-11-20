@@ -81,8 +81,7 @@
       "./components/prismic/children.js": "./dist/_app_/components/prismic/children.js",
       "./components/prismic/dom.js": "./dist/_app_/components/prismic/dom.js",
       "./components/prismic/element.js": "./dist/_app_/components/prismic/element.js",
-      "./components/prismic/image.js": "./dist/_app_/components/prismic/image.js",
-      "./helpers/eq.js": "./dist/_app_/helpers/eq.js"
+      "./components/prismic/image.js": "./dist/_app_/components/prismic/image.js"
     }
   },
   "exports": {

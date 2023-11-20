@@ -41,4 +41,16 @@ export default class PrismicElementComponent extends Component {
   get componentName() {
     return this.args.componentNames?.[this.args.node.type];
   }
+
+  get isImage() {
+    return this.args.node.type === 'image';
+  }
+
+  get isSpan() {
+    return this.args.node.type === 'span';
+  }
+
+  get isHyperlink() {
+    return this.args.node.type === 'hyperlink';
+  }
 }

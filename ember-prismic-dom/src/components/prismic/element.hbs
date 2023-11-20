@@ -9,15 +9,15 @@
       />
     </CustomComponent>
   {{~/let~}}
-{{~else if (eq @node.type 'image')~}}
+{{~else if this.isImage~}}
   <Prismic::Image @node={{@node}} />
-{{~else if (eq @node.type 'span')~}}
+{{~else if this.isSpan~}}
   <Prismic::Children
     @componentNames={{@componentNames}}
     @node={{@node}}
     @onUnknownTag={{@onUnknownTag}}
   />
-{{~else if (eq @node.type 'hyperlink')~}}
+{{~else if this.isHyperlink~}}
   <a
     href={{@node.node.data.url}}
     rel='noreferrer noopener'
