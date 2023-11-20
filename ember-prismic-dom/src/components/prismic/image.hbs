@@ -1,22 +1,21 @@
-{{! @glint-nocheck: not typesafe yet }}
-{{~#if @node.node.linkUrl~}}
+{{~#if this.hasLink~}}
   <a
-    href={{@node.node.linkUrl}}
-    target={{if @node.node.linkTarget @node.node.linkTarget '_blank'}}
+    href={{this.node.linkUrl}}
+    target={{this.linkTarget}}
     rel='noreferrer noopener'
   ><img
-      alt={{@node.node.alt}}
-      copyright={{@node.node.copyright}}
-      src={{@node.node.url}}
-      width={{@node.node.width}}
-      height={{@node.node.height}}
+      alt={{this.node.alt}}
+      copyright={{this.node.copyright}}
+      src={{this.node.url}}
+      width={{this.node.width}}
+      height={{this.node.height}}
     /></a>
 {{~else~}}
   <img
-    alt={{@node.node.alt}}
-    copyright={{@node.node.copyright}}
-    src={{@node.node.url}}
-    width={{@node.node.width}}
-    height={{@node.node.height}}
+    alt={{this.node.alt}}
+    copyright={{this.node.copyright}}
+    src={{this.node.url}}
+    width={{this.node.width}}
+    height={{this.node.height}}
   />
 {{~/if~}}

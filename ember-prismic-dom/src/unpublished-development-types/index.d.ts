@@ -2,7 +2,11 @@ import '@glint/environment-ember-loose';
 import 'ember-source/types';
 import 'ember-source/types/preview';
 
-import type { RTAnyNode, RichTextNodeType } from '@prismicio/types';
+import type {
+  RTAnyNode,
+  RTImageNode,
+  RichTextNodeType,
+} from '@prismicio/types';
 import type EmberElementHelperRegistry from 'ember-element-helper/template-registry';
 import type { EmbroiderUtilRegistry } from '@embroider/util';
 import type TemplatesRegistry from '../template-registry';
@@ -18,6 +22,13 @@ export interface TreeNode {
   text?: string;
   node: RTAnyNode;
   children: TreeNode[];
+}
+
+export interface ImageNode extends RTImageNode {
+  linkUrl?: string;
+  linkTarget?: string;
+  width?: number;
+  height?: number;
 }
 
 declare module '@glint/environment-ember-loose/registry' {
