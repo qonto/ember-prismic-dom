@@ -19,7 +19,7 @@
   />
 {{~else if this.isHyperlink~}}
   <a
-    href={{@node.node.data.url}}
+    href={{this.hyperlinkNode.data.url}}
     rel='noreferrer noopener'
     target={{this.target}}
   ><Prismic::Children
@@ -27,7 +27,7 @@
       @node={{@node}}
       @onUnknownTag={{@onUnknownTag}}
     /></a>
-{{~else~}}
+{{~else if this.tagName~}}
   {{~#let (element this.tagName) as |Tag|~}}
     <Tag><Prismic::Children
         @componentNames={{@componentNames}}
