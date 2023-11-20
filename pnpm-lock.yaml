@@ -72,6 +72,9 @@ importers:
       '@glint/template':
         specifier: ^1.2.1
         version: 1.2.1
+      '@prismicio/types':
+        specifier: ^0.2.8
+        version: 0.2.8
       '@qonto/eslint-config-typescript':
         specifier: 1.0.0-rc.0
         version: 1.0.0-rc.0(eslint@8.54.0)(typescript@5.3.2)
