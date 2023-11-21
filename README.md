@@ -32,9 +32,9 @@ ember install ember-prismic-dom
 <Prismic::Dom @nodes={{@myPrismicDoc.data.myRichText}} />
 ```
 
-### onUnknonwnTag
+### onUnknownTag
 
-Additionaly you can pass an `onUnknownTag` action to handle recieving data of a type `Prismic::Dom` can't render.
+Additionally you can pass an `onUnknownTag` action to handle receiving data of a type `Prismic::Dom` can't render.
 
 ```hbs
 <Prismic::Dom
@@ -70,8 +70,8 @@ Pass a custom component name to be used to render a prismic type. For example to
 _my-list.hbs_
 
 ```hbs
-<h1>My List</h2>
-<ul>{{yield}}<ul>
+<h1>My List</h1>
+<ul>{{yield}}</ul>
 ```
 
 _my-hyperlink.hbs_
@@ -96,7 +96,7 @@ _image.hbs_
 
 ### Migrating from prismic-dom
 
-`<Primcic::Dom/>` replaces [`prismic-dom`](https://github.com/prismicio/prismic-dom) , please [see the blog post for more information.](https://medium.com/qonto-way/introducing-ember-prismic-dom-c362647037d7)
+`<Prismic::Dom/>` replaces [`prismic-dom`](https://github.com/prismicio/prismic-dom) , please see [this blog post](https://medium.com/qonto-way/introducing-ember-prismic-dom-c362647037d7) for more information.
 
 In place of:
 
