@@ -1,8 +1,10 @@
 import Component from '@glimmer/component';
 
-import type { TreeNode } from '../../unpublished-development-types';
+import type {
+  CustomComponentLike,
+  TreeNode,
+} from '../../unpublished-development-types';
 import type { FilledLinkToWebField, RTLinkNode } from '@prismicio/types';
-import type { ComponentLike } from '@glint/template';
 
 // https://github.com/prismicio/prismic-richtext/blob/5c0a5ea33beba21adead113b9513392371e28f0c/src/types.ts#L3
 // https://github.com/prismicio/javascript-kit/blob/0b9ea35c720fdf82a9d76c4472f9423906244fb7/lib/fragments.js#L1346
@@ -26,7 +28,7 @@ const TAGS = Object.freeze({
 
 export interface PrismicElementArgs {
   node: TreeNode;
-  componentNames?: Record<string, ComponentLike>;
+  componentNames?: Record<string, CustomComponentLike>;
   onUnknownTag?: (node: TreeNode) => void;
 }
 
@@ -86,13 +88,13 @@ export default class PrismicElement extends Component<PrismicElementSignature> {
 
   /**
    * Gets the custom component to render.
-   * @returns The component or component name to render.
-   * @type {ComponentLike | string}
+   * @returns The component or component name to render, or `undefined` if there are no custom components.
+   * @type {CustomComponentLike }
    */
-  get componentName(): ComponentLike | string {
+  get componentName(): CustomComponentLike {
     const { componentNames, node } = this.args;
 
-    return componentNames?.[node.type] || '';
+    return componentNames?.[node.type] as CustomComponentLike;
   }
 
   /**

@@ -2,13 +2,16 @@ import Component from '@glimmer/component';
 
 import { asTree } from '@prismicio/richtext';
 
-import type { ComponentLike } from '@glint/template';
 import type { RTNode } from '@prismicio/types';
-import type { Tree, TreeNode } from '../../unpublished-development-types';
+import type {
+  CustomComponentLike,
+  Tree,
+  TreeNode,
+} from '../../unpublished-development-types';
 
 export interface PrismicDomArgs {
   [key: string]:
-    | ComponentLike
+    | CustomComponentLike
     | RTNode[]
     | string
     | ((node: TreeNode) => void)
@@ -53,13 +56,13 @@ export default class PrismicDom extends Component<PrismicDomSignature> {
   /**
    * Gets the custom component mappings.
    * @returns An object that maps custom component names to their component definitions.
-   * @type {Record<string, ComponentLike>}
+   * @type {Record<string, CustomComponentLike>}
    */
-  get componentNames(): Record<string, ComponentLike> {
+  get componentNames(): Record<string, CustomComponentLike> {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { nodes, onUnknownTag, ...names } = this.args;
 
-    return names as Record<string, ComponentLike>;
+    return names as Record<string, CustomComponentLike>;
   }
 
   /**

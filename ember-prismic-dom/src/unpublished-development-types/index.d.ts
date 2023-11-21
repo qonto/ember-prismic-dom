@@ -9,7 +9,19 @@ import type {
 } from '@prismicio/types';
 import type EmberElementHelperRegistry from 'ember-element-helper/template-registry';
 import type { EmbroiderUtilRegistry } from '@embroider/util';
+import type { ComponentLike } from '@glint/template';
 import type TemplatesRegistry from '../template-registry';
+import type PrismicChildren from '../components/prismic/children';
+
+interface DefaultBlockSignature<T> {
+  Blocks: {
+    default: [item: T];
+  };
+}
+
+export type CustomComponentLike = ComponentLike<
+  DefaultBlockSignature<typeof PrismicChildren>
+>;
 
 export interface Tree {
   key: string;

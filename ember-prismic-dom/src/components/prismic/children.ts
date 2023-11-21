@@ -1,12 +1,14 @@
 import Component from '@glimmer/component';
 
-import type { ComponentLike } from '@glint/template';
 import type { RTTextNodeBase } from '@prismicio/types';
-import type { TreeNode } from '../../unpublished-development-types';
+import type {
+  CustomComponentLike,
+  TreeNode,
+} from '../../unpublished-development-types';
 
 interface PrismicChildrenArgs {
   node: TreeNode;
-  componentNames?: Record<string, ComponentLike>;
+  componentNames?: Record<string, CustomComponentLike>;
   onUnknownTag?: (node: TreeNode) => void;
 }
 
