@@ -1,6 +1,9 @@
 {{! @glint-nocheck: not typesafe yet }}
 {{~#if this.isCustom~}}
-  {{~#let (ensure-safe-component this.componentName) as |CustomComponent|~}}
+  {{~#let
+    (component (ensure-safe-component this.componentName) node=@node)
+    as |CustomComponent|
+  ~}}
     <CustomComponent @node={{@node}}>
       <Prismic::Children
         @componentNames={{@componentNames}}
