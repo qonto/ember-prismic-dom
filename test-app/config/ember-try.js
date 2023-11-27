@@ -3,6 +3,13 @@
 const getChannelURL = require('ember-source-channel-url');
 const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 
+// Needed for ember-source < 4.8, when preview types were first shipped
+const emberTypesPackages = {
+  '@types/ember__application': '^4.0.10',
+  '@types/ember__component': '^4.0.21',
+  '@types/ember__routing': '^4.0.19',
+};
+
 module.exports = async function () {
   return {
     usePnpm: true,
@@ -12,6 +19,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.28.0',
+            ...emberTypesPackages,
           },
         },
       },
@@ -20,6 +28,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~4.4.0',
+            ...emberTypesPackages,
           },
         },
       },
@@ -75,6 +84,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.28.0',
+            ...emberTypesPackages,
           },
           ember: {
             edition: 'classic',
