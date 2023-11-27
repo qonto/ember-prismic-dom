@@ -1,33 +1,44 @@
 import { render } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
-import { setComponentTemplate } from '@ember/component';
-import Component from '@glimmer/component';
-
+import type { TestContext as TestContextBase } from '@ember/test-helpers';
+import type { PrismicDomArgs } from 'ember-prismic-dom/components/prismic/dom';
 import { hbs } from 'ember-cli-htmlbars';
 
-import cleanHtml from '../../../helpers/clean-html';
+import GroupListItem, {
+  type GroupListItemSignature,
+} from 'test-app/components/group-list-item';
+import Hyperlink, {
+  type HyperlinkSignature,
+} from 'test-app/components/hyperlink';
+import ListItem, {
+  type ListItemSignature,
+} from 'test-app/components/list-item';
+import SuperCustom from 'test-app/components/super-custom';
+
+import cleanHtml from 'test-app/tests/helpers/clean-html';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
+interface TestContext extends TestContextBase {
+  element: HTMLElement;
+  nodes: PrismicDomArgs['nodes'];
+  groupListItem: TemplateOnlyComponent<GroupListItemSignature>;
+  hyperlink: TemplateOnlyComponent<HyperlinkSignature>;
+  listItem: TemplateOnlyComponent<ListItemSignature> | undefined;
+}
 
 module('Integration | Component | prismic/dom', function (hooks) {
   setupRenderingTest(hooks);
 
   module('single elements', function () {
-    test('renders string', async function (assert) {
-      await render(hbs`<Prismic::Dom @nodes='some text' />`);
+    test('renders string', async function (this: TestContext, assert) {
+      await render<TestContext>(hbs`<Prismic::Dom @nodes='some text' />`);
       assert.strictEqual(cleanHtml(this), '<div>some text</div>');
     });
   });
 
   module('custom elements', function () {
-    test('hyperlink', async function (assert) {
-      class Hyperlink extends Component {}
-      setComponentTemplate(
-        hbs`<a href={{@node.node.data.url}}>{{yield}}</a>`,
-        Hyperlink,
-      );
-
-      this.hyperlink = Hyperlink;
-
+    test('hyperlink', async function (this: TestContext, assert) {
       this.nodes = [
         {
           type: 'paragraph',
@@ -43,19 +54,20 @@ module('Integration | Component | prismic/dom', function (hooks) {
         },
       ];
 
-      await render(
+      this.hyperlink = Hyperlink;
+
+      await render<TestContext>(
         hbs`<Prismic::Dom @nodes={{this.nodes}} @hyperlink={{this.hyperlink}} />`,
       );
+
       assert.strictEqual(
         cleanHtml(this),
         '<div><p>A <a href="https://example.org">link</a> to somewhere</p></div>',
       );
     });
 
-    test('handle passing a custom component as a string', async function (assert) {
-      class SuperCustom extends Component {}
-      setComponentTemplate(hbs`<mark>{{yield}}</mark>`, SuperCustom);
-
+    test('handle passing a custom component as a string', async function (this: TestContext, assert) {
+      this.owner.register('component:super-custom', SuperCustom);
       this.nodes = [
         {
           type: 'paragraph',
@@ -64,15 +76,14 @@ module('Integration | Component | prismic/dom', function (hooks) {
             {
               start: 2,
               end: 7,
-              type: 'super-custom',
+              type: 'strong',
             },
           ],
         },
       ];
-      this.owner.register('component:super-custom', SuperCustom);
 
-      await render(
-        hbs`<Prismic::Dom @nodes={{this.nodes}} @super-custom="super-custom" />`,
+      await render<TestContext>(
+        hbs`<Prismic::Dom @nodes={{this.nodes}} @strong="super-custom" />`,
       );
 
       assert.strictEqual(
@@ -81,22 +92,16 @@ module('Integration | Component | prismic/dom', function (hooks) {
       );
     });
 
-    test('list', async function (assert) {
-      class GroupListItem extends Component {}
-      class ListItem extends Component {}
-
-      setComponentTemplate(hbs`<ul>{{~yield~}} elephant</ul>`, GroupListItem);
-      setComponentTemplate(hbs`<li>{{~yield}} banana</li>`, ListItem);
-
+    test('list', async function (this: TestContext, assert) {
       this.nodes = [
         { type: 'list-item', text: 'one', spans: [] },
         { type: 'list-item', text: 'two', spans: [] },
       ];
 
       this.groupListItem = GroupListItem;
-      this.listItem = '';
+      this.listItem = undefined;
 
-      await render(
+      await render<TestContext>(
         hbs`<Prismic::Dom @nodes={{this.nodes}} @group-list-item={{this.groupListItem}} @list-item={{this.listItem}}/>`,
       );
 
@@ -115,13 +120,13 @@ module('Integration | Component | prismic/dom', function (hooks) {
   });
 
   module('complex combinations', function () {
-    test('list', async function (assert) {
+    test('list', async function (this: TestContext, assert) {
       this.nodes = [
         { type: 'o-list-item', text: 'one', spans: [] },
         { type: 'o-list-item', text: 'two', spans: [] },
       ];
 
-      await render(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
+      await render<TestContext>(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
 
       assert.strictEqual(
         cleanHtml(this),
@@ -129,7 +134,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
       );
     });
 
-    test('it renders text with overlapping spans', async function (assert) {
+    test('it renders text with overlapping spans', async function (this: TestContext, assert) {
       this.nodes = [
         {
           type: 'paragraph',
@@ -141,7 +146,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
         },
       ];
 
-      await render(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
+      await render<TestContext>(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
 
       assert.strictEqual(
         cleanHtml(this),
@@ -149,7 +154,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
       );
     });
 
-    test('it renders links with overlapping styles', async function (assert) {
+    test('it renders links with overlapping styles', async function (this: TestContext, assert) {
       this.nodes = [
         {
           type: 'paragraph',
@@ -167,7 +172,7 @@ module('Integration | Component | prismic/dom', function (hooks) {
         },
       ];
 
-      await render(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
+      await render<TestContext>(hbs`<Prismic::Dom @nodes={{this.nodes}} />`);
 
       assert.strictEqual(
         cleanHtml(this),

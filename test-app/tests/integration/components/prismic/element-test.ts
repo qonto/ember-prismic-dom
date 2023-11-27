@@ -1,17 +1,23 @@
 import { render } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
-
 import { hbs } from 'ember-cli-htmlbars';
+import type { TestContext as TestContextBase } from '@ember/test-helpers';
+import type { PrismicElementArgs } from 'ember-prismic-dom/components/prismic/element';
 
-import cleanHtml from '../../../helpers/clean-html';
+interface TestContext extends PrismicElementArgs, TestContextBase {
+  element: HTMLElement;
+}
+
+import cleanHtml from 'test-app/tests/helpers/clean-html';
 
 module('Integration | Component | prismic/element', function (hooks) {
   setupRenderingTest(hooks);
 
   module('single elements', function () {
-    test('figure - unknown type call onUnknownTag with node', async function (assert) {
+    test('figure - unknown type call onUnknownTag with node', async function (this: TestContext, assert) {
       let onUnknownTagCalled = false;
+
       this.node = {
         type: 'figure',
         node: {
@@ -20,17 +26,20 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      this.onUnknownTag = () => {
+
+      this.onUnknownTag = (): void => {
         onUnknownTagCalled = true;
       };
-      await render(
+
+      await render<TestContext>(
         hbs`<Prismic::Element @node={{this.node}} @onUnknownTag={{this.onUnknownTag}} />`,
       );
+
       assert.strictEqual(cleanHtml(this), '<!---->', 'not displayed');
       assert.ok(onUnknownTagCalled, 'onUnknownTag has been called');
     });
 
-    test('em', async function (assert) {
+    test('em', async function (this: TestContext, assert) {
       this.node = {
         type: 'em',
         node: {
@@ -39,14 +48,16 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(
         cleanHtml(this),
         '<em>Qonto The all-in-one business account</em>',
       );
     });
 
-    test('heading', async function (assert) {
+    test('heading', async function (this: TestContext, assert) {
       this.node = {
         type: 'heading1',
         node: {
@@ -55,14 +66,16 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(
         cleanHtml(this),
         '<h1>Qonto The all-in-one business account</h1>',
       );
     });
 
-    test('hyperlink', async function (assert) {
+    test('hyperlink', async function (this: TestContext, assert) {
       this.node = {
         type: 'hyperlink',
         node: {
@@ -85,14 +98,16 @@ module('Integration | Component | prismic/element', function (hooks) {
         end: 7,
         text: 'example',
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(
         cleanHtml(this),
         '<a href="https://example.org" rel="noreferrer noopener" target="_blank">example</a>',
       );
     });
 
-    test('image', async function (assert) {
+    test('image', async function (this: TestContext, assert) {
       this.node = {
         type: 'image',
         node: {
@@ -105,14 +120,16 @@ module('Integration | Component | prismic/element', function (hooks) {
           url: '/assets/img/connect/slack.png',
         },
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(
         cleanHtml(this),
         '<img alt="Qonto The all-in-one business account" copyright="qonto" src="/assets/img/connect/slack.png" width="500" height="400">',
       );
     });
 
-    test('paragraph', async function (assert) {
+    test('paragraph', async function (this: TestContext, assert) {
       this.node = {
         type: 'paragraph',
         node: {
@@ -121,14 +138,16 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(
         cleanHtml(this),
         '<p>Qonto The all-in-one business account</p>',
       );
     });
 
-    test('span', async function (assert) {
+    test('span', async function (this: TestContext, assert) {
       this.node = {
         type: 'span',
         node: {
@@ -137,14 +156,16 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(
         cleanHtml(this),
         'Qonto The all-in-one business account',
       );
     });
 
-    test('preformatted', async function (assert) {
+    test('preformatted', async function (this: TestContext, assert) {
       this.node = {
         type: 'preformatted',
         node: {
@@ -153,14 +174,16 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(
         cleanHtml(this),
         '<pre>Qonto The all-in-one business account</pre>',
       );
     });
 
-    test('strong', async function (assert) {
+    test('strong', async function (this: TestContext, assert) {
       this.node = {
         type: 'strong',
         node: {
@@ -169,14 +192,16 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(
         cleanHtml(this),
         '<strong>Qonto The all-in-one business account</strong>',
       );
     });
 
-    test('label', async function (assert) {
+    test('label', async function (this: TestContext, assert) {
       this.node = {
         type: 'label',
         node: {
@@ -185,7 +210,9 @@ module('Integration | Component | prismic/element', function (hooks) {
           spans: [],
         },
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(
         cleanHtml(this),
         '<label>Qonto The all-in-one business account</label>',
@@ -194,7 +221,7 @@ module('Integration | Component | prismic/element', function (hooks) {
   });
 
   module('complex combinations', function () {
-    test('list', async function (assert) {
+    test('list', async function (this: TestContext, assert) {
       this.node = {
         type: 'group-list-item',
         node: { type: 'group-list-item', spans: [], text: '' },
@@ -217,11 +244,13 @@ module('Integration | Component | prismic/element', function (hooks) {
           },
         ],
       };
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
+
       assert.strictEqual(cleanHtml(this), '<ul><li>one</li><li>two</li></ul>');
     });
 
-    test('it renders', async function (assert) {
+    test('it renders', async function (this: TestContext, assert) {
       this.node = {
         type: 'paragraph',
         node: {
@@ -313,7 +342,7 @@ module('Integration | Component | prismic/element', function (hooks) {
         ],
       };
 
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
 
       assert.strictEqual(
         cleanHtml(this),
@@ -321,7 +350,7 @@ module('Integration | Component | prismic/element', function (hooks) {
       );
     });
 
-    test('it renders links with overlapping styles', async function (assert) {
+    test('it renders links with overlapping styles', async function (this: TestContext, assert) {
       this.node = {
         type: 'paragraph',
         node: {
@@ -449,7 +478,7 @@ module('Integration | Component | prismic/element', function (hooks) {
         ],
       };
 
-      await render(hbs`<Prismic::Element @node={{this.node}} />`);
+      await render<TestContext>(hbs`<Prismic::Element @node={{this.node}} />`);
 
       assert.strictEqual(
         cleanHtml(this),
