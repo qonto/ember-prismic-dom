@@ -136,3 +136,5 @@ jobs:
       - name: Update TS version
         run: pnpm add -D ${{ matrix.typescript-scenario }}
         working-directory: ember-prismic-dom
+      - name: Type checking
+        run: pnpm lint:types
