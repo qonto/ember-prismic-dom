@@ -19,6 +19,7 @@ Easy [Prismic](https://prismic.io/) rendering in [Ember.js](https://emberjs.com)
 - Ember.js v4.4 or above
 - Ember CLI v4.4 or above
 - Node.js v18 or above
+- TypeScript v5 or above
 
 ## Installation
 
@@ -32,9 +33,9 @@ ember install ember-prismic-dom
 <Prismic::Dom @nodes={{@myPrismicDoc.data.myRichText}} />
 ```
 
-### onUnknonwnTag
+### onUnknownTag
 
-Additionaly you can pass an `onUnknownTag` action to handle recieving data of a type `Prismic::Dom` can't render.
+Additionally you can pass an `onUnknownTag` action to handle receiving data of a type `Prismic::Dom` can't render.
 
 ```hbs
 <Prismic::Dom
@@ -70,8 +71,8 @@ Pass a custom component name to be used to render a prismic type. For example to
 _my-list.hbs_
 
 ```hbs
-<h1>My List</h2>
-<ul>{{yield}}<ul>
+<h1>My List</h1>
+<ul>{{yield}}</ul>
 ```
 
 _my-hyperlink.hbs_
@@ -96,7 +97,7 @@ _image.hbs_
 
 ### Migrating from prismic-dom
 
-`<Primcic::Dom/>` replaces [`prismic-dom`](https://github.com/prismicio/prismic-dom) , please [see the blog post for more information.](https://medium.com/qonto-way/introducing-ember-prismic-dom-c362647037d7)
+`<Prismic::Dom/>` replaces [`prismic-dom`](https://github.com/prismicio/prismic-dom) , please see [this blog post](https://medium.com/qonto-way/introducing-ember-prismic-dom-c362647037d7) for more information.
 
 In place of:
 
@@ -119,6 +120,26 @@ Use this:
 
 ```hbs
 <Prismic::Dom @nodes={{@myPrismicDoc.data.myRichText}} />
+```
+
+## TypeScript usage
+
+Each component has proper [Glint](https://github.com/typed-ember/glint) types, which allow you to get strict type checking in your templates when using TypeScript.
+
+Unless you are using [strict mode](http://emberjs.github.io/rfcs/0496-handlebars-strict-mode.html) templates (via [first class component templates](http://emberjs.github.io/rfcs/0779-first-class-component-templates.html)),
+you need to import the addon's Glint template registry entries as described in the [Using Addons](https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons#using-glint-enabled-addons) documentation:
+
+```ts
+// e.g. types/glint.d.ts
+import "@glint/environment-ember-loose";
+import type PrismicDomRegistry from "ember-prismic-dom/template-registry";
+
+declare module "@glint/environment-ember-loose/registry" {
+  export default interface Registry
+    extends PrismicDomRegistry /* other addon registries */ {
+    // local entries
+  }
+}
 ```
 
 ## Contributing
