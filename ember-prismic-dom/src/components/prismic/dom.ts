@@ -5,6 +5,7 @@ import { asTree } from '@prismicio/richtext';
 import type { RTNode } from '@prismicio/types';
 import type {
   CustomComponentLike,
+  CustomComponentMap,
   Tree,
   TreeNode,
 } from '../../unpublished-development-types';
@@ -56,13 +57,13 @@ export default class PrismicDom extends Component<PrismicDomSignature> {
   /**
    * Gets the custom component mappings.
    * @returns An object that maps custom component names to their component definitions.
-   * @type {Record<string, CustomComponentLike>}
+   * @type {CustomComponentMap}
    */
-  get componentNames(): Record<string, CustomComponentLike> {
+  get componentNames(): CustomComponentMap {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { nodes, onUnknownTag, ...names } = this.args;
 
-    return names as Record<string, CustomComponentLike>;
+    return names as CustomComponentMap;
   }
 
   /**

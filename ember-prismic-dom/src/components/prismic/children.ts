@@ -2,13 +2,13 @@ import Component from '@glimmer/component';
 
 import type { RTTextNodeBase } from '@prismicio/types';
 import type {
-  CustomComponentLike,
+  CustomComponentMap,
   TreeNode,
 } from '../../unpublished-development-types';
 
 interface PrismicChildrenArgs {
   node: TreeNode;
-  componentNames?: Record<string, CustomComponentLike>;
+  componentNames?: CustomComponentMap;
   onUnknownTag?: (node: TreeNode) => void;
 }
 

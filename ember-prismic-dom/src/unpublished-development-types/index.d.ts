@@ -23,6 +23,8 @@ export type CustomComponentLike = ComponentLike<
   DefaultBlockSignature<typeof PrismicChildren>
 >;
 
+export type CustomComponentMap = Record<string, CustomComponentLike>;
+
 export interface Tree {
   key: string;
   children: TreeNode[];

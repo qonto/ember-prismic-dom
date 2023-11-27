@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 
 import type {
+  CustomComponentMap,
   CustomComponentLike,
   TreeNode,
 } from '../../unpublished-development-types';
@@ -28,7 +29,7 @@ const TAGS = Object.freeze({
 
 export interface PrismicElementArgs {
   node: TreeNode;
-  componentNames?: Record<string, CustomComponentLike>;
+  componentNames?: CustomComponentMap;
   onUnknownTag?: (node: TreeNode) => void;
 }
 
