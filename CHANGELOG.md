@@ -1,3 +1,29 @@
+
+## v5.0.0-beta.0 (2023-11-28)
+
+#### :boom: Breaking Change
+* [#115](https://github.com/qonto/ember-prismic-dom/pull/115) feat: drop node v16 ([@vscav](https://github.com/vscav))
+
+#### :rocket: Enhancement
+* [#132](https://github.com/qonto/ember-prismic-dom/pull/132) refactor: migrate test app package to TypeScript ([@michelegera](https://github.com/michelegera))
+* [#116](https://github.com/qonto/ember-prismic-dom/pull/116) refactor: migrate addon package to TypeScript ([@michelegera](https://github.com/michelegera))
+* [#88](https://github.com/qonto/ember-prismic-dom/pull/88) refactor: use variable assignment and bound value instead of {{component}} helper ([@vscav](https://github.com/vscav))
+
+#### :memo: Documentation
+* [#40](https://github.com/qonto/ember-prismic-dom/pull/40) chore: remove documentation for missing `pnpm test:watch` command ([@michelegera](https://github.com/michelegera))
+
+#### :house: Internal
+* [#89](https://github.com/qonto/ember-prismic-dom/pull/89) feat: setup TypeScript ([@vscav](https://github.com/vscav))
+* [#29](https://github.com/qonto/ember-prismic-dom/pull/29) chore: add dependabot configuration ([@vscav](https://github.com/vscav))
+* [#28](https://github.com/qonto/ember-prismic-dom/pull/28) ci: update action-setup-pnpm to v3 ([@dannycalleri](https://github.com/dannycalleri))
+* [#27](https://github.com/qonto/ember-prismic-dom/pull/27) fix: remove double pnpm installation ([@vscav](https://github.com/vscav))
+* [#26](https://github.com/qonto/ember-prismic-dom/pull/26) fix: remove double node installation on CI ([@vscav](https://github.com/vscav))
+
+#### Committers: 3
+- Danny Calleri ([@dannycalleri](https://github.com/dannycalleri))
+- Michele Gerarduzzi ([@michelegera](https://github.com/michelegera))
+- Vincent Scavinner ([@vscav](https://github.com/vscav))
+
 ## v4.0.0 (2023-06-02)
 
 #### :boom: Breaking Change
