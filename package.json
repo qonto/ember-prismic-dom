@@ -12,6 +12,7 @@
     "lint:types": "pnpm --filter '*' lint:types",
     "postinstall": "lefthook install",
     "prepare": "pnpm build",
+    "release": "release-it",
     "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "pnpm --filter ember-prismic-dom start",
     "start:test-app": "pnpm --filter test-app start",
