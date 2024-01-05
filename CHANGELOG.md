@@ -1,4 +1,18 @@
 
+
+# [5.0.0](https://github.com/qonto/ember-prismic-dom/compare/v5.0.0-beta.0...v5.0.0) (2024-01-05)
+
+
+### Bug Fixes
+
+* bump lockfile post release and use semantic commit message ([a6db9be](https://github.com/qonto/ember-prismic-dom/commit/a6db9be371c3c13d9c2c52342e4a55385eea25ce))
+* **ci:** remove wrong GH token used in release-it config ([43ebc9f](https://github.com/qonto/ember-prismic-dom/commit/43ebc9f62818b5dcfb4bc068e4810c68b943aa37))
+
+
+### Features
+
+* **ci:** add manual release workflow ([52c257e](https://github.com/qonto/ember-prismic-dom/commit/52c257edc2c3b6d1bc2140adff7e4b319e16d847))
+
 ## v5.0.0-beta.0 (2023-11-28)
 
 #### :boom: Breaking Change
