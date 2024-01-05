@@ -6,7 +6,7 @@ Releases are automated using
 
 ## How to release
 
-- [Click here](https://github.com/qonto/ember-amount-input/actions/workflows/release.yml) to visit the page for the `release` Action
+- [Click here](https://github.com/qonto/ember-prismic-dom/actions/workflows/release.yml) to visit the page for the `release` Action
 - If you have the right **permissions**, you will see a "Run workflow" button, click on it
 - Click on "Run workflow" in the dropdown
 - The pipeline will release on GitHub and npm for you, enjoy!
