@@ -35,7 +35,7 @@
     "@embroider/test-setup": "3.0.3",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
-    "@glint/core": "^1.2.1",
+    "@glint/core": "^1.2.2",
     "@glint/environment-ember-loose": "^1.2.2",
     "@glint/template": "^1.2.1",
     "@prismicio/richtext": "^2.1.5",
