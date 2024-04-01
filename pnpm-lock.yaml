@@ -97,8 +97,8 @@ importers:
         specifier: ^6.0.4
         version: 6.0.4(@babel/core@7.23.7)(rollup@4.10.0)
       '@tsconfig/ember':
-        specifier: ^3.0.3
-        version: 3.0.3
+        specifier: ^3.0.6
+        version: 3.0.6
       '@typescript-eslint/parser':
         specifier: ^6.21.0
         version: 6.21.0(eslint@8.57.0)(typescript@5.3.3)
@@ -185,8 +185,8 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0(release-it@16.3.0)
       '@tsconfig/ember':
-        specifier: ^3.0.3
-        version: 3.0.3
+        specifier: ^3.0.6
+        version: 3.0.6
       '@types/qunit':
         specifier: ^2.19.10
         version: 2.19.10
@@ -2918,8 +2918,8 @@ packages:
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
     dev: true
 
-  /@tsconfig/ember@3.0.3:
-    resolution: {integrity: sha512-StVVkcg/VxA+eDzBcTQAcnmmcmg1OxaV41OqFYluqVHpUX28TOD91DGg58n2AMU9ia27zeBBeVQiLsfmzuIV7w==}
+  /@tsconfig/ember@3.0.6:
+    resolution: {integrity: sha512-b1LmFAL5suTpQsaoG5NYpKAU8XfqQcob9gPu4xQlS/sNGD8Pp+vx+jI30Cy01+mxTBsQPig2kOwFpTD2b2qwtw==}
     dev: true
 
   /@types/acorn@4.0.6:
