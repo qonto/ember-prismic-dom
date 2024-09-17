@@ -48,4 +48,5 @@ module.exports = {
       extends: ['@qonto/eslint-config-typescript'],
     },
   ],
+  ignores: ['/blueprints/*/files/', '/dist/', '/declarations/', '/coverage/'],
 };
