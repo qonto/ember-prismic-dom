@@ -48,7 +48,7 @@
     "@embroider/util": "^1.12.1",
     "@glimmer/component": "^1.1.2",
     "@glint/core": "^1.5.0",
-    "@glint/environment-ember-loose": "^1.3.0",
+    "@glint/environment-ember-loose": "^1.5.0",
     "@glint/template": "^1.5.0",
     "@prismicio/types": "^0.2.8",
     "@qonto/eslint-config-typescript": "1.0.0-rc.0",
