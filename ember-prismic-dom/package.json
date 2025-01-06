@@ -43,7 +43,7 @@
     "@babel/plugin-proposal-decorators": "^7.23.9",
     "@babel/plugin-syntax-decorators": "^7.25.9",
     "@babel/preset-typescript": "^7.24.7",
-    "@babel/runtime": "^7.23.9",
+    "@babel/runtime": "^7.26.0",
     "@embroider/addon-dev": "^6.0.1",
     "@embroider/util": "^1.12.1",
     "@glimmer/component": "^1.1.2",
