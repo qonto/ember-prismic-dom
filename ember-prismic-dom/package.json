@@ -47,7 +47,7 @@
     "@embroider/addon-dev": "^7.1.1",
     "@embroider/util": "^1.12.1",
     "@glimmer/component": "^1.1.2",
-    "@glint/core": "^1.5.0",
+    "@glint/core": "^1.5.1",
     "@glint/environment-ember-loose": "^1.5.0",
     "@glint/template": "^1.5.0",
     "@prismicio/types": "^0.2.8",
