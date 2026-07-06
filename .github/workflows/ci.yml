@@ -90,8 +90,7 @@ jobs:
           - ember-lts-6.12
           - ember-release
           - ember-beta
-          - embroider-safe
-          - embroider-optimized
+          - embroider-vite
 
         allow-failure: [false]
         include:
