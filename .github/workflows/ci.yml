@@ -8,7 +8,7 @@ on:
   pull_request:
 
 env:
-  NODE_VERSION: "18.x"
+  NODE_VERSION: "22.x"
   PNPM_VERSION: "9.12.3"
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:
@@ -39,7 +39,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:
@@ -62,7 +62,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:
@@ -83,11 +83,9 @@ jobs:
       fail-fast: true
       matrix:
         ember-try-scenario:
-          - ember-lts-3.28
-          - ember-lts-4.4
-          - ember-lts-4.8
-          - ember-lts-4.12
-          - ember-classic
+          - ember-lts-5.12
+          - ember-lts-6.8
+          - ember-lts-6.12
           - ember-release
           - ember-beta
           - embroider-safe
@@ -100,7 +98,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:
@@ -121,14 +119,12 @@ jobs:
       fail-fast: false
       matrix:
         typescript-scenario:
-          - typescript@5.0
-          - typescript@5.1
-          - typescript@5.2
+          - typescript@6.0
           - typescript@next
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:

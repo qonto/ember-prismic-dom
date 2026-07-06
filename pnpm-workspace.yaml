@@ -1,3 +1,6 @@
 packages:
   - "ember-prismic-dom"
   - "test-app"
+allowBuilds:
+  core-js: false
+  lefthook: true

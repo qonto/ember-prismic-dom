@@ -45,9 +45,21 @@ export interface ImageNode extends RTImageNode {
   height?: number;
 }
 
+// `copyright` is a deliberate, non-standard attribute this addon has always
+// rendered on `<img>` for Prismic image metadata. Newer `@glint/template`
+// versions strictly type-check intrinsic element attributes against
+// `HTMLImageElementAttributes`, so augment that ambient global interface
+// (declared by `@glint/template`) to allow it.
+declare global {
+  interface HTMLImageElementAttributes {
+    copyright?: string | null;
+  }
+}
+
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
-    extends EmbroiderUtilRegistry,
+    extends
+      EmbroiderUtilRegistry,
       EmberElementHelperRegistry,
       TemplatesRegistry {
     // Add any registry entries from other addons here that your addon itself uses (in non-strict mode templates)
