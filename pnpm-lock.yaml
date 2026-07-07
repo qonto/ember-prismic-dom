@@ -69,9 +69,6 @@ importers:
       '@embroider/addon-dev':
         specifier: ^8.3.1
         version: 8.3.1(@glint/template@1.7.8)(rollup@4.62.2)
-      '@embroider/util':
-        specifier: ^1.13.5
-        version: 1.13.5(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.1.1)(@glint/template@1.7.8)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.3.0(@babel/core@7.29.7)))(@glint/template@1.7.8)(ember-source@5.12.0(@glimmer/component@2.1.1)(@glint/template@1.7.8)(rsvp@4.8.5)(webpack@5.108.4))
       '@glimmer/component':
         specifier: ^2.1.1
         version: 2.1.1
@@ -1427,19 +1424,6 @@ packages:
 
   '@embroider/util@1.13.2':
     resolution: {integrity: sha512-6/0sK4dtFK7Ld+t5Ovn9EilBVySoysMRdDAf/jGteOO7jdLKNgHnONg0w1T7ZZaMFUQfwJdRrk3u0dM+Idhiew==}
-    engines: {node: 12.* || 14.* || >= 16}
-    peerDependencies:
-      '@glint/environment-ember-loose': ^1.0.0
-      '@glint/template': ^1.0.0
-      ember-source: '*'
-    peerDependenciesMeta:
-      '@glint/environment-ember-loose':
-        optional: true
-      '@glint/template':
-        optional: true
-
-  '@embroider/util@1.13.5':
-    resolution: {integrity: sha512-rHhGUzAQ5iOr5Swvk7yaarVe5SJtcjK2t/C8ts9agWfhTq4DVfy8+axF0KOf1jALRiJao3l9ALRGd6letKw2ZQ==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
       '@glint/environment-ember-loose': ^1.0.0
@@ -3985,9 +3969,6 @@ packages:
   decompress-response@3.3.0:
     resolution: {integrity: sha512-BzRPQuY1ip+qDonAOz42gRm/pg9F768C+npV/4JOsxRC2sq+Rlk+Q4ZCAsOhnIaMrgarILY+RMUIvMmmX1qAEA==}
     engines: {node: '>=4'}
-
-  decorator-transforms@2.1.0:
-    resolution: {integrity: sha512-uK9qW64qViR7WD6m/qRFq0WzVMZLu5ylhgjsRZ0a2plCoUUs0MASnPjSL57uWKbmNZzN5bbOv04YaVY6DQYAwg==}
 
   decorator-transforms@2.4.0:
     resolution: {integrity: sha512-IB+0RqnJpuS7ndH4dVY5dfWTZsrCzN3avWFdjSiET0uT2U24jKywjpVEK97TflnZkZgiSRfmeqc1WfS+1CI23w==}
@@ -9964,18 +9945,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/util@1.13.5(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.1.1)(@glint/template@1.7.8)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.3.0(@babel/core@7.29.7)))(@glint/template@1.7.8)(ember-source@5.12.0(@glimmer/component@2.1.1)(@glint/template@1.7.8)(rsvp@4.8.5)(webpack@5.108.4))':
-    dependencies:
-      '@embroider/macros': 1.20.5(@glint/template@1.7.8)
-      broccoli-funnel: 3.0.8
-      ember-cli-babel: 7.26.11
-      ember-source: 5.12.0(@glimmer/component@2.1.1)(@glint/template@1.7.8)(rsvp@4.8.5)(webpack@5.108.4)
-    optionalDependencies:
-      '@glint/environment-ember-loose': 1.5.2(@glimmer/component@2.1.1)(@glint/template@1.7.8)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.3.0(@babel/core@7.29.7))
-      '@glint/template': 1.7.8
-    transitivePeerDependencies:
-      - supports-color
-
   '@embroider/vite@1.7.8(@embroider/core@4.6.2(@glint/template@1.7.8))(@glint/template@1.7.8)(vite@8.1.3(@types/node@22.5.5)(jiti@2.6.1)(terser@5.33.0)(yaml@2.9.0))':
     dependencies:
       '@babel/core': 7.29.7
@@ -12729,13 +12698,6 @@ snapshots:
     dependencies:
       mimic-response: 1.0.1
 
-  decorator-transforms@2.1.0(@babel/core@7.29.7):
-    dependencies:
-      '@babel/plugin-syntax-decorators': 7.29.7(@babel/core@7.29.7)
-      babel-import-util: 3.0.1
-    transitivePeerDependencies:
-      - '@babel/core'
-
   decorator-transforms@2.4.0(@babel/core@7.29.7):
     dependencies:
       '@babel/core': 7.29.7
@@ -13073,7 +13035,7 @@ snapshots:
   ember-cli-htmlbars@6.3.0:
     dependencies:
       '@ember/edition-utils': 1.2.0
-      babel-plugin-ember-template-compilation: 2.3.0
+      babel-plugin-ember-template-compilation: 2.4.1
       babel-plugin-htmlbars-inline-precompile: 5.3.1
       broccoli-debug: 0.6.5
       broccoli-persistent-filter: 3.1.3
@@ -13408,7 +13370,7 @@ snapshots:
   ember-modifier@4.3.0(@babel/core@7.29.7):
     dependencies:
       '@embroider/addon-shim': 1.10.3
-      decorator-transforms: 2.1.0(@babel/core@7.29.7)
+      decorator-transforms: 2.4.0(@babel/core@7.29.7)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color

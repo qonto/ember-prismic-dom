@@ -1,6 +1,6 @@
-import { render } from '@ember/test-helpers';
+import { render, setupOnerror } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
-import { module, skip, test } from 'qunit';
+import { module, test } from 'qunit';
 import type { TestContext as TestContextBase } from '@ember/test-helpers';
 import type { PrismicDomArgs } from 'ember-prismic-dom/components/prismic/dom';
 import { hbs } from 'ember-cli-htmlbars';
@@ -66,11 +66,17 @@ module('Integration | Component | prismic/dom', function (hooks) {
       );
     });
 
-    // Skipped on Ember >= 6.8: @embroider/util's string-based `ensureSafeComponent`
-    // lookup relies on private Ember renderer internals removed in 6.8+, and there is
-    // no fixed @embroider/util release yet. Passing a component as a string is a
-    // deprecated pattern upstream; this is a known limitation, not a regression.
-    skip('handle passing a custom component as a string', async function (this: TestContext, assert) {
+    // Passing a component as a string was only ever supported through
+    // `@embroider/util`'s `ensureSafeComponent`, itself a deprecated shim for a
+    // pattern that doesn't work under Embroider. That shim relied on private Ember
+    // renderer internals removed in Ember >= 6.8, so it has been dropped; callers
+    // must now pass an actual component reference (see the `hyperlink` test above).
+    test('rejects passing a custom component as a string', async function (this: TestContext, assert) {
+      let caughtError: Error | undefined;
+      setupOnerror((error) => {
+        caughtError = error;
+      });
+
       this.owner.register('component:super-custom', SuperCustom);
       this.nodes = [
         {
@@ -90,9 +96,9 @@ module('Integration | Component | prismic/dom', function (hooks) {
         hbs`<Prismic::Dom @nodes={{this.nodes}} @strong="super-custom" />`,
       );
 
-      assert.strictEqual(
-        cleanHtml(this),
-        '<div><p>A <mark>fancy</mark> component</p></div>',
+      assert.ok(
+        caughtError,
+        'rendering throws when passed a component name as a string',
       );
     });
 
