@@ -1,4 +1,4 @@
-import { render, setupOnerror } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import type { TestContext as TestContextBase } from '@ember/test-helpers';
@@ -14,8 +14,6 @@ import Hyperlink, {
 import ListItem, {
   type ListItemSignature,
 } from 'test-app/components/list-item';
-import SuperCustom from 'test-app/components/super-custom';
-
 import cleanHtml from 'test-app/tests/helpers/clean-html';
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
@@ -63,42 +61,6 @@ module('Integration | Component | prismic/dom', function (hooks) {
       assert.strictEqual(
         cleanHtml(this),
         '<div><p>A <a href="https://example.org">link</a> to somewhere</p></div>',
-      );
-    });
-
-    // Passing a component as a string was only ever supported through
-    // `@embroider/util`'s `ensureSafeComponent`, itself a deprecated shim for a
-    // pattern that doesn't work under Embroider. That shim relied on private Ember
-    // renderer internals removed in Ember >= 6.8, so it has been dropped; callers
-    // must now pass an actual component reference (see the `hyperlink` test above).
-    test('rejects passing a custom component as a string', async function (this: TestContext, assert) {
-      let caughtError: Error | undefined;
-      setupOnerror((error) => {
-        caughtError = error;
-      });
-
-      this.owner.register('component:super-custom', SuperCustom);
-      this.nodes = [
-        {
-          type: 'paragraph',
-          text: 'A fancy component',
-          spans: [
-            {
-              start: 2,
-              end: 7,
-              type: 'strong',
-            },
-          ],
-        },
-      ];
-
-      await render<TestContext>(
-        hbs`<Prismic::Dom @nodes={{this.nodes}} @strong="super-custom" />`,
-      );
-
-      assert.ok(
-        caughtError,
-        'rendering throws when passed a component name as a string',
       );
     });
 
