@@ -1,6 +1,6 @@
 {{~#if this.isCustom~}}
   {{~#let
-    (component this.componentName node=@node)
+    (component (ensure-safe-component this.componentName) node=@node)
     as |CustomComponent|
   ~}}
     <CustomComponent @node={{@node}}>

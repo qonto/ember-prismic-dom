@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { ensureSafeComponent } from '@embroider/util';
 
 import type {
   CustomComponentMap,
@@ -95,13 +94,8 @@ export default class PrismicElement extends Component<PrismicElementSignature> {
    */
   get componentName(): CustomComponentLike {
     const { componentNames, node } = this.args;
-    const component = componentNames?.[node.type];
 
-    if (!component) {
-      return undefined as unknown as CustomComponentLike;
-    }
-
-    return ensureSafeComponent(component, this) as CustomComponentLike;
+    return componentNames?.[node.type] as CustomComponentLike;
   }
 
   /**
