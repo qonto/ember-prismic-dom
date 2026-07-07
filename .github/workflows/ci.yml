@@ -8,7 +8,7 @@ on:
   pull_request:
 
 env:
-  NODE_VERSION: "18.x"
+  NODE_VERSION: "22.x"
   PNPM_VERSION: "9.12.3"
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:
@@ -39,7 +39,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:
@@ -50,6 +50,15 @@ jobs:
         run: pnpm test:ember --launch ${{ matrix.browser }}
         working-directory: test-app
 
+  # Known, currently unfixed upstream limitation (not masked with allow-failure,
+  # intentionally left red so it stays visible): this addon's `element.hbs` uses the
+  # `ensure-safe-component` helper to support passing a custom component as a string, which
+  # relies on @embroider/util's ensureSafeComponent. That API targets Ember's legacy renderer
+  # internals removed in Ember >= 6.8, and under Vite's build it fails to resolve at build time
+  # entirely rather than only at runtime for the specific test that already deliberately skips
+  # it. Since this job floats to the latest unpinned dependency versions, it's the one most
+  # likely to surface this. See the skipped test in
+  # test-app/tests/integration/components/prismic/dom-test.ts for more context.
   floating-dependencies:
     name: Floating Dependencies
     runs-on: ${{ matrix.os }}
@@ -62,7 +71,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:
@@ -80,18 +89,17 @@ jobs:
     needs: test
 
     strategy:
-      fail-fast: true
+      # fail-fast: false so one scenario's failure doesn't cancel the other scenarios
+      # before they report real results.
+      fail-fast: false
       matrix:
         ember-try-scenario:
-          - ember-lts-3.28
-          - ember-lts-4.4
-          - ember-lts-4.8
-          - ember-lts-4.12
-          - ember-classic
+          - ember-lts-5.12
+          - ember-lts-6.8
+          - ember-lts-6.12
           - ember-release
           - ember-beta
-          - embroider-safe
-          - embroider-optimized
+          - embroider-vite
 
         allow-failure: [false]
         include:
@@ -100,7 +108,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:
@@ -121,14 +129,12 @@ jobs:
       fail-fast: false
       matrix:
         typescript-scenario:
-          - typescript@5.0
-          - typescript@5.1
-          - typescript@5.2
+          - typescript@6.0
           - typescript@next
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: wyvox/action-setup-pnpm@v3
         with:
