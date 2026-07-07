@@ -76,7 +76,7 @@ jobs:
         uses: wyvox/action-setup-pnpm@v3
         with:
           pnpm-version: "${{ env.PNPM_VERSION }}"
-          node-version: "${{ env.NODE_VERSION }}"
+          node-version: "24.x"
           args: "--no-lockfile"
       - name: Run tests
         run: pnpm test:ember
