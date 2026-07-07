@@ -50,6 +50,15 @@ jobs:
         run: pnpm test:ember --launch ${{ matrix.browser }}
         working-directory: test-app
 
+  # Known, currently unfixed upstream limitation (not masked with allow-failure,
+  # intentionally left red so it stays visible): this addon's `element.hbs` uses the
+  # `ensure-safe-component` helper to support passing a custom component as a string, which
+  # relies on @embroider/util's ensureSafeComponent. That API targets Ember's legacy renderer
+  # internals removed in Ember >= 6.8, and under Vite's build it fails to resolve at build time
+  # entirely rather than only at runtime for the specific test that already deliberately skips
+  # it. Since this job floats to the latest unpinned dependency versions, it's the one most
+  # likely to surface this. See the skipped test in
+  # test-app/tests/integration/components/prismic/dom-test.ts for more context.
   floating-dependencies:
     name: Floating Dependencies
     runs-on: ${{ matrix.os }}

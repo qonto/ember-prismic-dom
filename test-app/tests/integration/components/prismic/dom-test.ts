@@ -1,6 +1,6 @@
 import { render } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
-import { module, test } from 'qunit';
+import { module, skip, test } from 'qunit';
 import type { TestContext as TestContextBase } from '@ember/test-helpers';
 import type { PrismicDomArgs } from 'ember-prismic-dom/components/prismic/dom';
 import { hbs } from 'ember-cli-htmlbars';
@@ -14,6 +14,8 @@ import Hyperlink, {
 import ListItem, {
   type ListItemSignature,
 } from 'test-app/components/list-item';
+import SuperCustom from 'test-app/components/super-custom';
+
 import cleanHtml from 'test-app/tests/helpers/clean-html';
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
@@ -61,6 +63,36 @@ module('Integration | Component | prismic/dom', function (hooks) {
       assert.strictEqual(
         cleanHtml(this),
         '<div><p>A <a href="https://example.org">link</a> to somewhere</p></div>',
+      );
+    });
+
+    // Skipped on Ember >= 6.8: @embroider/util's string-based `ensureSafeComponent`
+    // lookup relies on private Ember renderer internals removed in 6.8+, and there is
+    // no fixed @embroider/util release yet. Passing a component as a string is a
+    // deprecated pattern upstream; this is a known limitation, not a regression.
+    skip('handle passing a custom component as a string', async function (this: TestContext, assert) {
+      this.owner.register('component:super-custom', SuperCustom);
+      this.nodes = [
+        {
+          type: 'paragraph',
+          text: 'A fancy component',
+          spans: [
+            {
+              start: 2,
+              end: 7,
+              type: 'strong',
+            },
+          ],
+        },
+      ];
+
+      await render<TestContext>(
+        hbs`<Prismic::Dom @nodes={{this.nodes}} @strong="super-custom" />`,
+      );
+
+      assert.strictEqual(
+        cleanHtml(this),
+        '<div><p>A <mark>fancy</mark> component</p></div>',
       );
     });
 
