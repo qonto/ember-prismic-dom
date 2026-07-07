@@ -16,10 +16,10 @@ Easy [Prismic](https://prismic.io/) rendering in [Ember.js](https://emberjs.com)
 
 ## Compatibility
 
-- Ember.js v4.4 or above
-- Ember CLI v4.4 or above
-- Node.js v18 or above
-- TypeScript v5 or above
+- Ember.js v5.12, v6.8, v6.12, or v7.0 and above
+- Ember CLI v5.12 or above
+- Node.js v22 or above
+- TypeScript v6 or above
 
 ## Installation
 
@@ -58,14 +58,25 @@ export default class MyComponent extends Component {
 
 ### Custom Rendering
 
-Pass a custom component name to be used to render a prismic type. For example to custom render the `group-list-item` and `hyperlink` types
+Pass a custom component to be used to render a prismic type. For example to custom render the `group-list-item` and `hyperlink` types
 
 ```hbs
 <Prismic::Dom
-  @group-list-item="my-list"
-  @hyperlink="my-hyperlink"
+  @group-list-item={{this.myList}}
+  @hyperlink={{this.myHyperlink}}
   @nodes={{@myPrismicDoc.data.myRichText}}
 />
+```
+
+```js
+import Component from "@glimmer/component";
+import MyList from "./my-list";
+import MyHyperlink from "./my-hyperlink";
+
+export default class MyComponent extends Component {
+  myList = MyList;
+  myHyperlink = MyHyperlink;
+}
 ```
 
 _my-list.hbs_
@@ -81,12 +92,24 @@ _my-hyperlink.hbs_
 <a href={{@node.node.data.url}}>{{yield}}</a>
 ```
 
+> [!NOTE]
+> Passing a component by name as a string (e.g. `@group-list-item="my-list"`) is not supported. Always pass an actual component reference, as shown above.
+
 ### Use existing addons
 
 For example you want to use [`ember-async-image`](https://github.com/html-next/ember-async-image)
 
 ```hbs
-<Prismic::Dom @nodes={{@nodes}} @image='image'>
+<Prismic::Dom @nodes={{@nodes}} @image={{this.image}}>
+```
+
+```js
+import Component from "@glimmer/component";
+import Image from "./image";
+
+export default class MyComponent extends Component {
+  image = Image;
+}
 ```
 
 _image.hbs_
@@ -141,6 +164,14 @@ declare module "@glint/environment-ember-loose/registry" {
   }
 }
 ```
+
+## Known Limitations
+
+### `@embroider/vite` floating-dependencies build failure
+
+Under `@embroider/vite`, with the latest floating (unpinned) versions of `@embroider/util` and related Embroider packages, the app build can fail to resolve the `@embroider/virtual/helpers/ensure-safe-component` virtual module used internally to support this addon's dynamic custom-component rendering (see [Custom Rendering](#custom-rendering)).
+
+This is an upstream Embroider limitation, not something fixable from within this addon: Embroider's compat build requires any dynamic `(component ...)` invocation to be wrapped in `ensure-safe-component`, either explicitly or via its own auto-injected equivalent, and there is currently no published `@embroider/util`/`@embroider/vite`/`@embroider/compat` release (including unstable/prerelease builds) that resolves this cleanly under Vite. It is intentionally left failing (not masked with `allow-failure`) in this repository's `Floating Dependencies` CI job so it stays visible; pinned/locked dependency versions are unaffected.
 
 ## Contributing
 
