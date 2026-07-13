@@ -72,7 +72,7 @@
     "eslint-plugin-ember": "^12.3.3",
     "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-qunit": "^8.1.1",
+    "eslint-plugin-qunit": "^8.2.6",
     "lerna-changelog": "^2.2.0",
     "loader.js": "^4.7.0",
     "prettier": "^3.2.5",
